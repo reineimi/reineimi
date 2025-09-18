@@ -1,16 +1,14 @@
-## Hi there 👋
+## Personal page:
+https://reineimi.github.io/reineimi
 
-<!--
-**reineimi/reineimi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Social links:
+- https://github.com/reineimi
+- https://mastodon.social/@reineimi
+- https://bsky.app/profile/reineimi.bsky.social
+- https://twitch.tv/reineimi
+- https://www.youtube.com/@reineimi
+- https://open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi
+- https://www.reddit.com/user/reineimi_dev/
+- https://discord.gg/rGMZ7GkxKu
+- https://aur.archlinux.org/account/reineimi
+- https://myanimelist.net/profile/reineimi
