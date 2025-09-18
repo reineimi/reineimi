@@ -25,7 +25,7 @@
 		.socials > a { display: block; border-radius: 2rem; text-decoration: none; background: #555; border: var(--border) solid var(--itemBg); }
 		.gfavicon { display: inline-block; height: 1em; margin-right: 0.25rem; border-radius: 0.25rem; transform: translateY(0.1rem); }
 		.socials > a:hover { filter: brightness(1.2); }
-		.profile img {}
+		header a { text-decoration: none; }
 	</style>
 
 	<script>{
@@ -61,7 +61,7 @@
 
 <body onload='init()' class='ani-g scroll'>
 	<header class='shadow spx f'>
-		<h1 class='m left p1 fontCode'>@reineimi</h1>
+		<a class='fs2 m left p1 fontCode' href='https://github.com/reineimi'>@reineimi</a>
 		<div class='m right'>
 			<div class='round center th_itemBg py1 px2 g2'>
 				<p class='gicon cblue-hov pt fs2 fcx' onclick='themeset()'>contrast</p>
@@ -106,7 +106,7 @@
 				</div>
 				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/small/c558545806868f5f.jpg' alt='avatar'>
-					<h2 class='w'>Social links:</h2>
+					<p class='w fs2'>Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 				</div>
 			</div>
