@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang='en'>
+<head><meta charset='utf-8'><meta name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover'>
+	<!-- Metadata -->
+	<title>@reineimi</title>
+	<meta name='title' content='霊音・永旻 (@reineimi) profile and social links'>
+	<meta name='description' content='Internet profile and all social links of the user 霊音・永旻 (@reineimi / @reineimi.dev)'>
+	<meta name='keywords' content='social,links,profile,personal page,resume,portfolio'>
+	<!-- Core modules -->
+	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
+	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
+	<meta name='va2meta' content='{"ver": "1.4.38.156"}'>
+	<!-- Google -->
+	<link rel='preconnect' href='https://fonts.googleapis.com'>
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+	<meta name='google-site-verification' content=''>
+	<!-- Fonts & Styles -->
+	<link rel='preload' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' as='style' onload='this.onload=null;this.rel="stylesheet"'>
+	<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200'></noscript>
+	<link rel='preload' href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Slab:wght@100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap' as='style' onload='this.onload=null;this.rel="stylesheet"'>
+	<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Slab:wght@100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap'></noscript>
+
+	<style>
+		b { color: var(--darkpink); }
+		li::marker { content: '> '; color: var(--darkgreen); }
+		.socials > a { display: block; border-radius: 2rem; text-decoration: none; background: #555; border: var(--border) solid var(--itemBg); }
+		.gfavicon { display: inline-block; height: 1em; margin-right: 0.25rem; border-radius: 0.25rem; transform: translateY(0.1rem); }
+		.socials > a:hover { filter: brightness(1.2); }
+		.profile img {}
+	</style>
+
+	<script>{
+	const links = {
+		GitHub: ['github.com/reineimi', 'black'],
+		Mastodon: ['mastodon.social/@reineimi', ''],
+		Bluesky: ['bsky.app/profile/reineimi.bsky.social', ''],
+		Twitch: ['twitch.tv/reineimi', 'purple'],
+		YouTube: ['www.youtube.com/@reineimi', 'red'],
+		Spotify: ['open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi', 'green'],
+		Reddit: ['www.reddit.com/user/reineimi_dev/', 'yellow'],
+		Discord: ['discord.gg/rGMZ7GkxKu', ''],
+		Archlinux: ['aur.archlinux.org/account/reineimi', 'blue'],
+		MAL: ['myanimelist.net/profile/reineimi', ''],
+	};
+	window.addEventListener('load', ()=>{
+		function gfavicon(url, _size) {
+			const domain = url.replaceAll(/http[s]?:\/\//g, '').replaceAll(/\/.+/g, '');
+			const size = _size || 64;
+			const icon = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=${size}`;
+			return `<img class='gfavicon' src='${icon}' alt='${url}'>`;
+		}
+		const socials = qem('.socials')[0];
+		loop(links, (i,v)=>{
+			mk(socials, `
+				<a href='https://${v[0]}' target='_blank' class='${v[1]}'>
+					${gfavicon(v[0])} ${i}
+				</a>`);
+		});
+	});
+	}</script>
+</head>
+
+<body onload='init()' class='ani-g scroll'>
+	<header class='shadow spx f'>
+		<h1 class='m left p1 fontCode'>@reineimi</h1>
+		<div class='m right'>
+			<div class='round center th_itemBg py1 px2 g2'>
+				<p class='gicon cblue-hov pt fs2 fcx' onclick='themeset()'>contrast</p>
+			</div>
+		</div>
+	</header>
+	<div>
+		<div class='sect my2'>
+			<div class='profile th_windowFg round shadow p3 f'>
+				<div class='w1-6-3 pr3 pb3'>
+					<div class='p3 th_windowBg round fcx pb05-g fontCode'>
+						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
+						<p><b>Nicknames:</b> reineimi, reineimi_dev</p>
+						<p><b>E-mail:</b> <a href='mailto:reineimi.dev@gmail.com'>reineimi.dev@gmail.com</a></p>
+						<p><b>Gender:</b> Male</p>
+						<p><b>Birthdate:</b> 2001.01.03</p>
+						<p><b>Languages:</b> English, Russian, Japanese</p>
+						<p><b>Hobbies:</b> Programming, music, art, gaming, photography, bicycle-camping</p>
+						<div><b>Programming languages:</b><ul>
+							<li>Lua (middle/senior) (&gt;5y)</li>
+							<li>JS (middle/senior) (&gt;3y)</li>
+							<li>PHP (junior/middle) (&gt;1y)</li>
+							<li>C++ (entry) (&lt;1y)</li>
+							<li>bash (junior) (~1y)</li>
+						</ul></div>
+						<div><b>Skills:</b><ul>
+							<li>(&gt;5y) Programming</li>
+							<li>(&lt;1y) Game development</li>
+							<li>(&gt;3y) Web development</li>
+							<li>(&gt;1y) Fullstack engineering</li>
+							<li>(&gt;1y) SEO optimization</li>
+							<li>(&gt;3y) UI/UX design (CSS only)</li>
+							<li>(&lt;1y) Illustration</li>
+							<li>(&gt;1y) Pixel art</li>
+							<li>(&gt;1y) 2D animation</li>
+							<li>(&gt;3y) System administration (Arch Linux, Windows 10/11)</li>
+							<li>Cybersecurity (kernel modules, nftables, firejail, vbox)</li>
+							<li>Photography</li>
+							<li>Photoshop</li>
+						</ul></div>
+					</div>
+				</div>
+				<div class='w1-6-3'>
+					<img class='w hr25 round imfill' src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/small/c558545806868f5f.jpg' alt='avatar'>
+					<h2 class='w'>Social links:</h2>
+					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
