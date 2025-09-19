@@ -6,9 +6,9 @@
 	<meta name='description' content='Internet profile and all social links of the user 霊音・永旻 (@reineimi / @reineimi.dev)'>
 	<meta name='keywords' content='social,links,profile,personal page,resume,portfolio'>
 	<!-- Core modules -->
-	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
-	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.4.38.156"}'>
+	<script src='va2/lib/va2.js' async></script>
+	<link rel='stylesheet' href='va2/lib/va2.css'>
+	<meta name='va2meta' content='{"ver": "1.5.43.162"}'>
 	<!-- Google -->
 	<link rel='preconnect' href='https://fonts.googleapis.com'>
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -34,49 +34,44 @@
 	</style>
 
 	<script>{
-	const links = {
-		GitHub: ['github.com/reineimi', 'black'],
-		Mastodon: ['mastodon.social/@reineimi', 'purple'],
-		Bluesky: ['bsky.app/profile/reineimi.bsky.social', 'blue'],
-		Twitch: ['twitch.tv/reineimi', 'purple'],
-		YouTube: ['www.youtube.com/@reineimi', 'red'],
-		Spotify: ['open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi', 'green'],
-		Reddit: ['www.reddit.com/user/reineimi_dev/', 'yellow'],
-		Discord: ['discord.gg/rGMZ7GkxKu', ''],
-		Matrix: ['matrix.to/#/@reineimi:matrix.org', 'green'],
-		Archlinux: ['aur.archlinux.org/account/reineimi', 'blue'],
-		MAL: ['myanimelist.net/profile/reineimi', ''],
-	}
-	const projects = {
-		['V A 二ｌｌA (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
-		archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
-		['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
-	}
-	window.addEventListener('load', ()=>{
-		function gfavicon(url, _size) {
-			const domain = url.replaceAll(/http[s]?:\/\//g, '').replaceAll(/\/.+/g, '');
-			const size = _size || 64;
-			const icon = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=${size}`;
-			return `<img class='gfavicon' src='${icon}' alt='${url}'>`;
+		const links = {
+			GitHub: ['github.com/reineimi', 'black'],
+			Mastodon: ['mastodon.social/@reineimi', 'purple'],
+			Bluesky: ['bsky.app/profile/reineimi.bsky.social', 'blue'],
+			Twitch: ['twitch.tv/reineimi', 'purple'],
+			YouTube: ['www.youtube.com/@reineimi', 'red'],
+			Spotify: ['open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi', 'green'],
+			Reddit: ['www.reddit.com/user/reineimi_dev/', 'yellow'],
+			Discord: ['discord.gg/rGMZ7GkxKu', ''],
+			Matrix: ['matrix.to/#/@reineimi:matrix.org', 'green'],
+			Archlinux: ['aur.archlinux.org/account/reineimi', 'blue'],
+			MAL: ['myanimelist.net/profile/reineimi', ''],
 		}
-		const socials = qem('.socials')[0];
-		loop(links, (i,v)=>{
-			mk(socials, `
-				<a href='https://${v[0]}' target='_blank' class='text border br2 ${v[1]}'>
-					${gfavicon(v[0])} ${i}
-				</a>`);
+		const projects = {
+			['V A 二ｌｌA (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
+			archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
+			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
+		}
+		window.addEventListener('load', ()=>{
+			const socials = qem('.socials')[0];
+			loop(links, (i,v)=>{
+				mk(socials, `
+					<a href='https://${v[0]}' target='_blank' class='text border br2 ${v[1]}'>
+						${gfavicon(v[0])} ${i}
+					</a>`);
+			});
+
+			const proj = qem('.projects')[0];
+			loop(projects, (i,v)=>{
+				mk(proj, `
+					<div class='w1-3 p2'>
+						<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
+							<p class='fs1-5'>${i}</p>
+							<p class='th_itemBg py1 px2 my1 fcx'>${v[1]}</p>
+						</div>
+					</div>`);
+			});
 		});
-		const proj = qem('.projects')[0];
-		loop(projects, (i,v)=>{
-			mk(proj, `
-				<div class='w1-3 p2'>
-					<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
-						<p class='fs1-5'>${i}</p>
-						<p class='th_itemBg py1 px2 my1 fcx'>${v[1]}</p>
-					</div>
-				</div>`);
-		});
-	});
 	}</script>
 </head>
 
@@ -94,7 +89,7 @@
 	<div class='fill zn1 th_windowBg o06'></div>
 
 	<main>
-		<div class='sect mt4'>
+		<div class='sect mt4 z1'>
 			<div class='th_windowFg round shadow p3 pt1 f'>
 				<div class='fs2 bb py1 mb2 w'>Profile</div>
 				<div class='w1-6-3 pr3 pb3'>
@@ -131,7 +126,8 @@
 					</div>
 				</div>
 				<div class='w1-6-3'>
-					<img class='w hr25 round imfill' src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/small/c558545806868f5f.jpg' alt='avatar'>
+					<img class='w hr25 round imfill pt' alt='avatar' onclick="setclass(this, 'fillx', 'z1', 'black')"
+						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
 					<p class='w fs2 mb2'>Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 				</div>
@@ -162,12 +158,13 @@
 		<div class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1 scroll'>
 				<div class='fs2 bb py1 mb2'>Va2 frontend embedding</div>
-				<p class='fontCode'>&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;</p>
-				<p class='fontCode'>&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</p>
+				<pre class='nosel fontCode cgreen-hov pt ani' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite')">
+&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
+&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
 			</div>
 		</div>
 
-		<footer class='f'>
+		<footer class='f z0'>
 			<div class='m center g3 bmult cmult-hov text-g pb1-g bb-g'>
 				<a class='bb' href='https://github.com/reineimi'>GitHub</a>
 				<a class='bb' href='https://github.com/reineimi/reineimi'>Source</a>
