@@ -20,27 +20,38 @@
 	<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Slab:wght@100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap'></noscript>
 
 	<style>
+		:root { --sectSpacing: 2rem; }
+		body { display: block; }
 		b { color: var(--darkpink); }
 		li::marker { content: '> '; color: var(--darkgreen); }
-		.socials > a { display: block; border-radius: 2rem; text-decoration: none; background: #555; border: var(--border) solid var(--itemBg); }
+		.socials > a { display: block; text-decoration: none; background: #555; }
 		.gfavicon { display: inline-block; height: 1em; margin-right: 0.25rem; border-radius: 0.25rem; transform: translateY(0.1rem); }
 		.socials > a:hover { filter: brightness(1.2); }
 		header a { text-decoration: none; }
+		.notes p { border-left: 0.3rem solid #0000; line-height: 1.3; }
+		a { font-weight: 450; color: var(--fontColorX); }
+		footer a { display: block !important; }
 	</style>
 
 	<script>{
 	const links = {
 		GitHub: ['github.com/reineimi', 'black'],
-		Mastodon: ['mastodon.social/@reineimi', ''],
-		Bluesky: ['bsky.app/profile/reineimi.bsky.social', ''],
+		Mastodon: ['mastodon.social/@reineimi', 'purple'],
+		Bluesky: ['bsky.app/profile/reineimi.bsky.social', 'blue'],
 		Twitch: ['twitch.tv/reineimi', 'purple'],
 		YouTube: ['www.youtube.com/@reineimi', 'red'],
 		Spotify: ['open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi', 'green'],
 		Reddit: ['www.reddit.com/user/reineimi_dev/', 'yellow'],
 		Discord: ['discord.gg/rGMZ7GkxKu', ''],
+		Matrix: ['matrix.to/#/@reineimi:matrix.org', 'green'],
 		Archlinux: ['aur.archlinux.org/account/reineimi', 'blue'],
 		MAL: ['myanimelist.net/profile/reineimi', ''],
-	};
+	}
+	const projects = {
+		['V A 二ｌｌA (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend.'],
+		archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
+		['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
+	}
 	window.addEventListener('load', ()=>{
 		function gfavicon(url, _size) {
 			const domain = url.replaceAll(/http[s]?:\/\//g, '').replaceAll(/\/.+/g, '');
@@ -51,26 +62,41 @@
 		const socials = qem('.socials')[0];
 		loop(links, (i,v)=>{
 			mk(socials, `
-				<a href='https://${v[0]}' target='_blank' class='${v[1]}'>
+				<a href='https://${v[0]}' target='_blank' class='text border br2 ${v[1]}'>
 					${gfavicon(v[0])} ${i}
 				</a>`);
+		});
+		const proj = qem('.projects')[0];
+		loop(projects, (i,v)=>{
+			mk(proj, `
+				<div class='w1-3 p2'>
+					<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
+						<p class='fs1-5'>${i}</p>
+						<p class='th_itemBg py1 px2 my1 fcx'>${v[1]}</p>
+					</div>
+				</div>`);
 		});
 	});
 	}</script>
 </head>
 
-<body onload='init()' class='ani-g scroll'>
+<body onload='init()' class='ani-g'>
 	<header class='shadow spx f'>
-		<a class='fs2 m left p1 fontCode' href='https://github.com/reineimi'>@reineimi</a>
+		<a class='fs2 m left px1 fontCode cbrown-hov ani' href='https://github.com/reineimi'>@reineimi</a>
 		<div class='m right'>
 			<div class='round center th_itemBg py1 px2 g2'>
 				<p class='gicon cblue-hov pt fs2 fcx' onclick='themeset()'>contrast</p>
 			</div>
 		</div>
 	</header>
-	<div>
-		<div class='sect my2'>
-			<div class='profile th_windowFg round shadow p3 f'>
+
+	<div class='fill bgfill zn1' style='background-image: url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)'></div>
+	<div class='fill zn1 th_windowBg o06'></div>
+
+	<main>
+		<div class='sect mt4'>
+			<div class='th_windowFg round shadow p3 pt1 f'>
+				<div class='fs2 bb py1 mb2 w'>Profile</div>
 				<div class='w1-6-3 pr3 pb3'>
 					<div class='p3 th_windowBg round fcx pb05-g fontCode'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
@@ -106,11 +132,51 @@
 				</div>
 				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/small/c558545806868f5f.jpg' alt='avatar'>
-					<p class='w fs2'>Social links:</p>
+					<p class='w fs2 mb2'>Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 				</div>
 			</div>
 		</div>
-	</div>
+
+		<div class='sect'>
+			<div class='th_windowFg round shadow p3 pt1 f'>
+				<div class='fs2 bb py1 mb2 w'>Projects</div>
+				<div class='projects w f'></div>
+				<p>... <a href='https://github.com/reineimi?tab=repositories' target='_blank'>and more</a></p>
+			</div>
+		</div>
+
+		<div class='sect'>
+			<div class='notes th_windowFg round shadow p3 pt1'>
+				<div class='fs2 bb py1 mb2'>Notes</div>
+				<div class='bmult pl2-g mb2-g'>
+					<p>A little about fullstack: I worked with most of the well-known CMS, but haven't touched a single framework yet (except for bootstrap). I prefer using 
+						<a href='https://github.com/reineimi/va2/tree/main/lib' target='_blank'>my own library</a> when it comes to web-development.</p>
+					<p>I once tried making a game from scratch using C++ and SDL2, but kinda gave up and went for the LÖVE (love2d.org) framework. Still in process of making my game engine using it.</p>
+					<p>Reddit account has been suspended again. For no reason. Just like with the previous account, I left no comments or posts except for my PC build on r/pcmasterrace.
+						<a href='https://mastodon.social/@reineimi/114269436309324700' target='_blank'>(You can view the PC build on Mastodon)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class='sect'>
+			<div class='notes th_windowFg round shadow p3 pt1 scroll'>
+				<div class='fs2 bb py1 mb2'>Va2 frontend embedding</div>
+				<p class='fontCode'>&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;</p>
+				<p class='fontCode'>&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</p>
+			</div>
+		</div>
+
+		<footer class='f'>
+			<div class='m center g3 bmult cmult-hov text-g pb1-g bb-g'>
+				<a class='bb' href='https://github.com/reineimi'>GitHub</a>
+				<a class='bb' href='https://github.com/reineimi/reineimi'>Source</a>
+				<a class='bb' href='https://github.com/reineimi?tab=repositories'>Projects</a>
+				<a class='bb' href='https://mastodon.social/@reineimi'>Media</a>
+				<a class='bb' href='https://github.com/reineimi/va2/blob/main/lib/va2.css'>Va2.css</a>
+				<a class='bb' href='https://github.com/reineimi/va2/blob/main/lib/va2.js'>Va2.js</a>
+			</div>
+		</footer>
+	</main>
 </body>
 </html>
