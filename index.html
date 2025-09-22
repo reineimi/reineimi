@@ -6,9 +6,9 @@
 	<meta name='description' content='Internet profile and all social links of the user 霊音・永旻 (@reineimi / @reineimi.dev)'>
 	<meta name='keywords' content='social,links,profile,personal page,resume,portfolio'>
 	<!-- Core modules -->
-	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
-	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.5.44.162"}'>
+	<script src='va2/lib/va2.js' async></script>
+	<link rel='stylesheet' href='va2/lib/va2.css'>
+	<meta name='va2meta' content='{"ver": "1.6.46.163"}'>
 	<!-- Google -->
 	<link rel='preconnect' href='https://fonts.googleapis.com'>
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -29,11 +29,22 @@
 		.socials > a:hover { filter: brightness(1.2); }
 		header a { text-decoration: none; }
 		.notes p { border-left: 0.3rem solid #0000; line-height: 1.3; }
-		a { font-weight: 450; color: var(--fontColorX); }
+		a { font-weight: 450; }
 		footer a { display: block !important; }
 	</style>
 
-	<script>{
+	<script>
+		function notif_runner() {
+			const temp = "<div class='fh g1 bt pt2 mt2'><textarea class='input th_windowBg' id='notif_text' placeholder='Text'></textarea>"+
+				"<input class='input th_windowBg' id='notif_classes' placeholder='Classes'>"+
+				"<p class='btn' onclick='notif_runner(); notifs.del(this.root(3))'>Create</p></div>";
+			let _text = 'Use this notification to create new ones';
+			let _classes = '';
+			if (emi('notif_text')) { _text = emi('notif_text').value; }
+			if (emi('notif_classes')) { _classes = emi('notif_classes').value; }
+			notify(_text+temp, _classes);
+		}
+		{
 		const links = {
 			GitHub: ['github.com/reineimi', 'black'],
 			Mastodon: ['mastodon.social/@reineimi', 'purple'],
@@ -48,7 +59,7 @@
 			MAL: ['myanimelist.net/profile/reineimi', ''],
 		}
 		const projects = {
-			['V A 二ｌｌA (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
+			['V A 二 l l A (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
 			archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
@@ -71,6 +82,14 @@
 						</div>
 					</div>`);
 			});
+			va2.env.init[1] = ()=>{
+				notif_runner();
+				notify(`Va2 updates:<ul class='my0 py0'>
+				<li>Changed some styles and functions</li>
+				<li>Added notification tray</li>
+				</ul>`);
+				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
+			}
 		});
 	}</script>
 </head>
@@ -80,6 +99,7 @@
 		<a class='fs2 m left px1 fontCode cbrown-hov ani' href='https://github.com/reineimi'>@reineimi</a>
 		<div class='m right'>
 			<div class='round center th_itemBg py1 px2 g2'>
+				<p class='btn_notifs gicon cblue-hov pt fs2 fcx' onclick='notifs.show()'>notifications</p>
 				<p class='gicon cblue-hov pt fs2 fcx' onclick='themeset()'>contrast</p>
 			</div>
 		</div>
@@ -126,7 +146,7 @@
 					</div>
 				</div>
 				<div class='w1-6-3'>
-					<img class='w hr25 round imfill pt' alt='avatar' onclick="setclass(this, 'fillx', 'z1', 'black')"
+					<img class='w hr25 round imfill' alt='profile_picture' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
 					<p class='w fs2 mb2'>Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
@@ -158,7 +178,7 @@
 		<div class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1 scroll'>
 				<div class='fs2 bb py1 mb2'>Va2 frontend embedding</div>
-				<pre class='nosel fontCode cgreen-hov pt ani' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite')">
+				<pre class='nosel fontCode cgreen-hov pt ani' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 &lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 &lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
 			</div>
