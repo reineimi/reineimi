@@ -8,7 +8,7 @@
 	<!-- Core modules -->
 	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
 	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.6.46.163"}'>
+	<meta name='va2meta' content='{"ver": "1.6.47.165"}'>
 	<!-- Google -->
 	<link rel='preconnect' href='https://fonts.googleapis.com'>
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -37,7 +37,7 @@
 		function notif_runner() {
 			const temp = "<div class='fh g1 bt pt2 mt2'><textarea class='input th_windowBg' id='notif_text' placeholder='Text'></textarea>"+
 				"<input class='input th_windowBg' id='notif_classes' placeholder='Classes'>"+
-				"<p class='btn' onclick='notif_runner(); notifs.del(this.root(3))'>Create</p></div>";
+				"<p class='btn' onclick='notif_runner(); notifs.del(this.root(4))'>Create</p></div>";
 			let _text = 'Use this notification to create new ones';
 			let _classes = '';
 			if (emi('notif_text')) { _text = emi('notif_text').value; }
