@@ -8,7 +8,7 @@ https://reineimi.github.io/reineimi
 - https://twitch.tv/reineimi
 - https://www.youtube.com/@reineimi
 - https://open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi
-- https://www.reddit.com/user/reineimi_dev/
+- https://www.reddit.com/user/r_reineimi/
 - https://discord.gg/rGMZ7GkxKu
 - https://aur.archlinux.org/account/reineimi
 - https://myanimelist.net/profile/reineimi
