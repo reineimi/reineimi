@@ -69,7 +69,7 @@
 			const colors = ['crimson', 'red','orange','yellow','green','teal','cyan','skyblue','blue','purple','pink','brown'];
 			loop(colors, (_,color)=>{
 				const em = create('div', {
-					className: 'f ch4 brc scale15-hov z1-hov pt -g '+color,
+					className: 'center ch4 brc scale15-hov z1-hov pt -g '+color,
 					innerHTML: `<p class='ch2 p05 brc' style='background:var(--${color})'></p>`,
 					onclick: ()=>{ css('accent', `var(--${color})`); }
 				}, emi('Colors').item(1));
@@ -114,7 +114,7 @@
 			<div class='m ml0 w1-3 mb2'>
 				<a class='block th_windowFg br shadow fontX fs3 fw2 fw5-hov tc nosel py1' href='#Projects'>V A <x class='iblock rot90 c ni_x'>I I</x> I I A</a>
 			</div>
-			<div class='m mr0 mb0 th_windowFg round shadow p2 center fw9 nosel -g brRB0 g05 m0-g'></div>
+			<div class='m mr0 mb0 th_windowFg round shadow p2 f fw9 nosel -g brRB0 g05 m0-g'></div>
 		</div>
 
 		<div id='Profile' class='sect z1'>
