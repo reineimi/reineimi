@@ -6,23 +6,14 @@
 	<meta name='description' content='Internet profile and all social links of the user 霊音・永旻 (@reineimi / @reineimi.dev)'>
 	<meta name='keywords' content='social,links,profile,personal page,resume,portfolio'>
 	<!-- Core modules -->
- <script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
- <link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.6.48.168"}'>
-	<!-- Google -->
-	<link rel='preconnect' href='https://fonts.googleapis.com'>
-	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-	<meta name='google-site-verification' content=''>
-	<!-- Fonts & Styles -->
-	<link rel='preload' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' as='style' onload='this.onload=null;this.rel="stylesheet"'>
-	<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200'></noscript>
-	<link rel='preload' href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Slab:wght@100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap' as='style' onload='this.onload=null;this.rel="stylesheet"'>
-	<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto+Slab:wght@100..900&family=Smooch+Sans:wght@100..900&family=VT323&display=swap'></noscript>
+	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
+	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
+	<meta name='va2meta' content='{"ver": "1.7.50.169"}'>
 
 	<style>
 		:root { --sectSpacing: 2rem; }
 		body { display: block; }
-		b { color: var(--darkpink); }
+		b { color: var(--accent); }
 		li::marker { content: '> '; color: var(--darkgreen); }
 		.socials > a { display: block; text-decoration: none; background: #555; }
 		.gfavicon { display: inline-block; height: 1em; margin-right: 0.25rem; border-radius: 0.25rem; transform: translateY(0.1rem); }
@@ -33,37 +24,27 @@
 		footer a { display: block !important; }
 	</style>
 
-	<script>
-		function notif_runner() {
-			const temp = "<div class='fh g1 bt pt2 mt2'><textarea class='input th_windowBg' id='notif_text' placeholder='Text'></textarea>"+
-				"<input class='input th_windowBg' id='notif_classes' placeholder='Classes'>"+
-				"<p class='btn' onclick='notif_runner(); notifs.del(this.root(4))'>Create</p></div>";
-			let _text = 'Use this notification to create new ones';
-			let _classes = '';
-			if (emi('notif_text')) { _text = emi('notif_text').value; }
-			if (emi('notif_classes')) { _classes = emi('notif_classes').value; }
-			notify(_text+temp, _classes);
-		}
-		{
+	<script>{
 		const links = {
-			GitHub: ['github.com/reineimi', 'black'],
+			GitHub: ['github.com/reineimi', 'gray'],
 			Mastodon: ['mastodon.social/@reineimi', 'purple'],
-			Bluesky: ['bsky.app/profile/reineimi.bsky.social', 'blue'],
+			Bluesky: ['bsky.app/profile/reineimi.bsky.social', 'skyblue'],
 			Twitch: ['twitch.tv/reineimi', 'purple'],
 			YouTube: ['www.youtube.com/@reineimi', 'red'],
 			Spotify: ['open.spotify.com/user/31sad3p4o5mac64kdvxnwldzibwi', 'green'],
-			Reddit: ['www.reddit.com/user/r_reineimi/', 'yellow'],
-			Discord: ['discord.gg/rGMZ7GkxKu', ''],
-			Matrix: ['matrix.to/#/@reineimi:matrix.org', 'green'],
-			Archlinux: ['aur.archlinux.org/account/reineimi', 'blue'],
-			MAL: ['myanimelist.net/profile/reineimi', ''],
+			Reddit: ['www.reddit.com/user/u_reineimi/', 'orange'],
+			Discord: ['discord.gg/rGMZ7GkxKu', 'blue'],
+			Matrix: ['matrix.to/#/@reineimi:matrix.org', 'teal'],
+			Archlinux: ['aur.archlinux.org/account/reineimi', 'skyblue'],
+			MAL: ['myanimelist.net/profile/reineimi', 'blue'],
 		}
 		const projects = {
-			['V A 二 l l A (Va2)']: ['https://github.com/reineimi/va2', 'A fullstack library and a work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
+			['V A 二 l l A (Vanilla) / Va2']: ['https://github.com/reineimi/va2', 'A fullstack library, web Desktop Environment, and work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
 			archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
+			// Socials
 			const socials = qem('.socials')[0];
 			loop(links, (i,v)=>{
 				mk(socials, `
@@ -72,22 +53,38 @@
 					</a>`);
 			});
 
+			// Projects
 			const proj = qem('.projects')[0];
 			loop(projects, (i,v)=>{
 				mk(proj, `
 					<div class='w1-3 p2'>
 						<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
 							<p class='fs1-5'>${i}</p>
-							<p class='th_itemBg py1 px2 my1 fcx'>${v[1]}</p>
+							<p class='th_itemBg py1 px2 my1'>${v[1]}</p>
 						</div>
 					</div>`);
 			});
+
+			// Colors
+			const colors = ['crimson', 'red','orange','yellow','green','teal','cyan','skyblue','blue','purple','pink','brown'];
+			loop(colors, (_,color)=>{
+				const em = create('div', {
+					className: 'f ch4 brc scale15-hov z1-hov pt -g '+color,
+					innerHTML: `<p class='ch2 p05 brc' style='background:var(--${color})'></p>`,
+					onclick: ()=>{ css('accent', `var(--${color})`); }
+				}, emi('Colors').item(1));
+			});
+
+			// Notifs
 			va2.env.init[1] = ()=>{
-				notif_runner();
 				notify(`Va2 updates:<ul class='my0 py0'>
-				<li>Changed some styles and functions</li>
 				<li>Added notification tray</li>
 				<li>Added animation classes</li>
+				<li>Rewritten a lot of CSS (there are major style changes)</li>
+				<li>Replaced Google resources with local copies (font-faces)</li>
+				<li>Added more colors!</li>
+				<li>Added some branding (logos from older Va2 version)</li>
+				<li>Rewritten a license</li>
 				</ul>`);
 				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
 			}
@@ -95,26 +92,36 @@
 	}</script>
 </head>
 
-<body onload='init()' class='ani-g'>
-	<header class='shadow spx f'>
-		<a class='fs2 m left px1 fontCode cbrown-hov ani' href='https://github.com/reineimi'>@reineimi</a>
-		<div class='m right'>
-			<div class='round center th_itemBg py1 px2 g2'>
-				<p class='btn_notifs gicon cblue-hov pt fs2 fcx' onclick='notifs.show()'>notifications</p>
-				<p class='gicon cblue-hov pt fs2 fcx' onclick='themeset()'>contrast</p>
+<body onload='init()' class='ani-all ts-all'>
+	<div class='spx mb05'>
+		<header class='shadow f brB px2'>
+			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
+			<a class='fs2-5 m mx0 px1 fontCode c-hov fontPixel' href='https://github.com/reineimi'>reineimi</a>
+			<div class='m right'>
+				<div class='round center th_itemBg py1 px2 g2'>
+					<p class='btn_notifs gicon c-hov pt fs2' onclick='notifs.show()'>notifications</p>
+					<p class='gicon c-hov pt fs2' onclick='themeset()'>contrast</p>
+				</div>
 			</div>
-		</div>
-	</header>
+		</header>
+	</div>
 
 	<div class='fill bgfill zn1' style='background-image: url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)'></div>
 	<div class='fill zn1 th_windowBg o06'></div>
 
 	<main>
-		<div class='sect mt4 z1'>
-			<div class='th_windowFg round shadow p3 pt1 f'>
-				<div class='fs2 bb py1 mb2 w'>Profile</div>
+		<div id='Colors' class='sect f mb0'>
+			<div class='m ml0 w1-3 mb2'>
+				<a class='block th_windowFg br shadow fontX fs3 fw2 fw5-hov tc nosel py1' href='#Projects'>V A <x class='iblock rot90 c ni_x'>I I</x> I I A</a>
+			</div>
+			<div class='m mr0 mb0 th_windowFg round shadow p2 center fw9 nosel -g brRB0 g05 m0-g'></div>
+		</div>
+
+		<div id='Profile' class='sect z1'>
+			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
+				<div class='fs2 bB py1 mb2 w fontPixel'>| Profile</div>
 				<div class='w1-6-3 pr3 pb3'>
-					<div class='p3 th_windowBg round fcx pb05-g fontCode'>
+					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
 						<p><b>Nicknames:</b> reineimi, reineimi_dev</p>
 						<p><b>E-mail:</b> <a href='mailto:reineimi.dev@gmail.com'>reineimi.dev@gmail.com</a></p>
@@ -149,52 +156,92 @@
 				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' alt='profile_picture' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
-					<p class='w fs2 mb2'>Social links:</p>
+					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 				</div>
 			</div>
 		</div>
 
-		<div class='sect'>
+		<div id='Projects' class='sect'>
 			<div class='th_windowFg round shadow p3 pt1 f'>
-				<div class='fs2 bb py1 mb2 w'>Projects</div>
+				<div class='fs2 bB py1 mb2 w fontPixel'>| Projects</div>
 				<div class='projects w f'></div>
 				<p>... <a href='https://github.com/reineimi?tab=repositories' target='_blank'>and more</a></p>
 			</div>
 		</div>
 
-		<div class='sect'>
+		<div id='Notes' class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1'>
-				<div class='fs2 bb py1 mb2'>Notes</div>
-				<div class='bmult pl2-g mb2-g'>
+				<div class='fs2 bB py1 mb2 fontPixel'>| Notes</div>
+				<div class='bdiff adiff pl2-g mb2-g a-bold'>
 					<p>A little about fullstack: I worked with most of the well-known CMS, but haven't touched a single framework yet (except for bootstrap). I prefer using 
 						<a href='https://github.com/reineimi/va2/tree/main/lib' target='_blank'>my own library</a> when it comes to web-development.</p>
 					<p>I once tried making a game from scratch using C++ and SDL2, but kinda gave up and went for the LÖVE (love2d.org) framework. Still in process of making my game engine using it.</p>
-					<p>Reddit account has been suspended again. For no reason. Just like with the previous account, I left no comments or posts except for my PC build on r/pcmasterrace.
-						<a href='https://mastodon.social/@reineimi/114269436309324700' target='_blank'>(You can view the PC build on Mastodon)</a></p>
+					<p>Note on Reddit: since I posted my PC build on r/pcmasterrace <a href='https://mastodon.social/@reineimi/114269436309324700' target='_blank'>(You can view the PC build here)</a>,
+						all my accounts are automatically getting suspended for no reason (faulty algorithms as they are), therefore do not contact me on Reddit. There's a plenty of other, more reliable options.</p>
 				</div>
 			</div>
 		</div>
 
-		<div class='sect'>
-			<div class='notes th_windowFg round shadow p3 pt1 scroll'>
-				<div class='fs2 bb py1 mb2'>Va2 frontend embedding</div>
-				<pre class='nosel fontCode cgreen-hov pt ani' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
+		<div id='Va2' class='sect'>
+			<div class='notes th_windowFg round shadow p3 pt1'>
+				<div class='fs2 bB py1 mb2 fontPixel'>| Va2 frontend embedding</div>
+				<pre class='nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 &lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 &lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
 			</div>
 		</div>
 
-		<footer class='f z0'>
-			<div class='m center g3 bmult cmult-hov text-g pb1-g bb-g'>
-				<a class='bb' href='https://github.com/reineimi'>GitHub</a>
-				<a class='bb' href='https://github.com/reineimi/reineimi'>Source</a>
-				<a class='bb' href='https://github.com/reineimi?tab=repositories'>Projects</a>
-				<a class='bb' href='https://mastodon.social/@reineimi'>Media</a>
-				<a class='bb' href='https://github.com/reineimi/va2/blob/main/lib/va2.css'>Va2.css</a>
-				<a class='bb' href='https://github.com/reineimi/va2/blob/main/lib/va2.js'>Va2.js</a>
+		<div id='Palette' class='sect f end hide'>
+			<div class='th_windowFg round shadow p3 pt1 w f m-g'>
+				<div class='w fs2 bB py1 mb2 fontPixel'>| Palette</div>
+				<div class='ml0 mt0 pb3 fontCode fs1-2'>
+					<p>1. Difference (cdiff)</p>
+					<p>2. Multiple (cmult)</p>
+					<p>3. cmult</p>
+					<p>4. cmult, mult</p>
+					<p>5. cwhite, mult</p>
+				</div>
+				<div class='mr0 mb1-g fw7-hov'>
+					<div class='f end cdiff th_windowBg my05-g mx1-g py1-g px1-g tc br1'>
+						<p>Yellow</p><p>Green</p><p>Blue</p><p>Red</p><p>Purple</p><p>Skyblue</p>
+						<p>Orange</p><p>Teal</p><p>Pink</p><p>Cyan</p><p>Brown</p><p>Crimson</p>
+					</div>
+					<div class='f end cmult th_windowBg my05-g mx1-g py1-g px1-g tc br1'>
+						<p>Red</p><p>Orange</p><p>Yellow</p><p>Green</p><p>Teal</p><p>Cyan</p>
+						<p>Skyblue</p><p>Blue</p><p>Purple</p><p>Pink</p><p>Crimson</p><p>Red</p>
+					</div>
+					<div class='f end cmult my05-g mx1-g py1-g px1-g tc'>
+						<p>Red</p><p>Orange</p><p>Yellow</p><p>Green</p><p>Teal</p><p>Cyan</p>
+						<p>Skyblue</p><p>Blue</p><p>Purple</p><p>Pink</p><p>Crimson</p><p>Red</p>
+					</div>
+					<div class='f cmult mult m05-g py2-g px2-g tc br1-g'>
+						<p>Dark Red</p><p>Dark Orange</p><p>Dark Yellow</p><p>Dark Green</p><p>Dark Teal</p><p>Dark Cyan</p>
+						<p>Dark Skyblue</p><p>Dark Blue</p><p>Dark Purple</p><p>Dark Pink</p><p>Dark Crimson</p><p>Dark Red</p>
+					</div>
+					<div class='f cwhite mult m05-g py2-g px2-g tc br1-g'>
+						<p>Dark Red</p><p>Dark Orange</p><p>Dark Yellow</p><p>Dark Green</p><p>Dark Teal</p><p>Dark Cyan</p>
+						<p>Dark Skyblue</p><p>Dark Blue</p><p>Dark Purple</p><p>Dark Pink</p><p>Dark Crimson</p><p>Dark Red</p>
+					</div>
+					
+				</div>
 			</div>
-		</footer>
+		</div>
+
+		<div id='Footer' class='w spx'>
+			<footer class='w f z0 brT py2 px3 m-g'>
+				<div class='ml2 f'>
+					<div class='m ml0 fontX fs3 fw8 nosel bounded'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
+					<a class='block m ml3 fontX fs3 fw2 fw5-hov tc nosel' href='#Projects'>V A <x class='iblock rot90 c'>I I</x> I I A</a>
+				</div>
+				<div class='mr3 py2 f end g2 bdiff cdiff-hov text-g pb1-g bB-g fontCode mx0-g fs1-2 a-bold fcx'>
+					<a href='https://github.com/reineimi'>GitHub</a>
+					<a href='https://github.com/reineimi/reineimi'>Source</a>
+					<a href='https://github.com/reineimi?tab=repositories'>Repos</a>
+					<a href='https://mastodon.social/@reineimi'>Media</a>
+				</div>
+			</footer>
+		</div>
 	</main>
 </body>
 </html>
