@@ -8,11 +8,20 @@
 	<!-- Core modules -->
 	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
 	<link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/Cinzel.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/DancingScript.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/GoogleMaterialSymbolsRounded.woff2'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/Inconsolata.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/Montserrat.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/NotoSansJP.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/RobotoSlab.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/SmoochSans.ttf'>
+	<link rel=preconnect href='https://reineimi.github.io/va2/res/fonts/VT323.ttf'>
 	<meta name='va2meta' content='{"ver": "1.7.50.169"}'>
 
 	<style>
 		:root { --sectSpacing: 2rem; }
-		body { display: block; }
+		body { display: block; background: #555; }
 		b { color: var(--accent); }
 		li::marker { content: '> '; color: var(--darkgreen); }
 		.socials > a { display: block; text-decoration: none; background: #555; }
@@ -44,6 +53,8 @@
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
+			show(emi('Header'), emi('Main')); rm(emi('Intro'));
+
 			// Socials
 			const socials = qem('.socials')[0];
 			loop(links, (i,v)=>{
@@ -93,7 +104,7 @@
 </head>
 
 <body onload='init()' class='ani-all ts-all'>
-	<div class='spx mb05'>
+	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
 			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
 			<a class='fs2-5 m mx0 px1 fontCode c-hov fontPixel' href='https://github.com/reineimi'>reineimi</a>
@@ -109,7 +120,11 @@
 	<div class='fill bgfill zn1' style='background-image: url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)'></div>
 	<div class='fill zn1 th_windowBg o06'></div>
 
-	<main>
+	<div id='Intro' class='w h center'>
+		<p class='fs2 py4 px5 br' style='font-family: sans-serif !important; letter-spacing: 5px; background: #333; color: #ddd'>Loading...</p>
+	</div>
+
+	<main id='Main' class='hide'>
 		<div id='Colors' class='sect f mb0'>
 			<div class='m ml0 w1-3 mb2'>
 				<a class='block th_windowFg br shadow fontX fs3 fw2 fw5-hov tc nosel py1' href='#Projects'>V A <x class='iblock rot90 c ni_x'>I I</x> I I A</a>
