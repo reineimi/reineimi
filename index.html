@@ -27,7 +27,7 @@
 		footer a { display: block !important; }
 	</style>
 
-	<script>{
+	<script>{ // Main
 		const links = {
 			GitHub: ['github.com/reineimi', 'gray'],
 			Mastodon: ['mastodon.social/@reineimi', 'purple'],
@@ -95,8 +95,146 @@
 				</ul>`);
 				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
 			}
+
+			// Spotify
+			emi('spot_stats').item(0).onclick = function() {
+				if (!va2.temp.spot_loaded) {
+					mk(this.root().item(1), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
+					va2.temp.spot_loaded = 1;
+				}
+				tshow(this.root().item(1));
+			}
 		});
 	}</script>
+
+	<script> // AniList loader
+	window.addEventListener('load', ()=>{
+		const variables = { name: 'reineimi' };
+		const query = `
+		query($name: String)  {
+		  User(name: $name) {
+			statistics {
+			  anime {
+				genres {
+				  count
+				  genre
+				  meanScore
+				}
+				count
+				meanScore
+				minutesWatched
+			  }
+			}
+			favourites {
+			  anime {
+				nodes {
+				  title {
+					english
+					native
+					romaji
+				  }
+				  coverImage {
+					medium
+				  }
+				  id
+				  siteUrl
+				  season
+				  popularity
+				  genres
+				}
+			  }
+			  characters {
+				nodes {
+				  image {
+					medium
+				  }
+				  name {
+					full
+				  }
+				  siteUrl
+				}
+			  }
+			  manga {
+				nodes {
+				  coverImage {
+					medium
+				  }
+				  meanScore
+				  title {
+					romaji
+					native
+					english
+				  }
+				  chapters
+				  episodes
+				  duration
+				  siteUrl
+				}
+			  }
+			  staff {
+				nodes {
+				  name {
+					full
+					alternative
+					native
+				  }
+				  image {
+					medium
+				  }
+				  siteUrl
+				}
+			  }
+			}
+		  }
+		}`;
+		const url = 'https://graphql.anilist.co',
+			options = {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+				},
+				body: JSON.stringify({
+					query: query,
+					variables: variables
+				})
+			};
+		emi('al_stats').item(0).onclick = function() {
+			if (!va2.temp.AL_loaded) {
+				fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
+				va2.temp.AL_loaded = 1;
+			}
+			tshow(this.root().item(1));
+		}
+		function handleResponse(response) {
+			return response.json().then(function (json) {
+				return response.ok ? json : Promise.reject(json);
+			});
+		}
+		function handleError(error) { console.error(error); }
+		function handleData(data) {
+			//console.log(data);
+			const dt = data.data.User;
+			mk(emi('al_stats').item(1), `
+				<div class='f mr3-g'>
+					<p><b>Entries</b>: ${dt.statistics.anime.count}</p>
+					<p><b>Score</b>: ${dt.statistics.anime.meanScore / 10}</p>
+					<p><b>Hours</b>: ${dt.statistics.anime.minutesWatched / 60}</p>
+				</div>
+				<div id='al_fav_list' class='f mt2 mb2-g'>
+					<p class='w tc fs1-5'>Favourites</p>
+				</div>
+			`);
+			loop(dt.favourites.anime.nodes, (i,v)=>{
+				mk('al_fav_list', `
+				<div class='w1-3 f'>
+					<a class='m' href='${v.siteUrl}' target='_blank'><img src='${v.coverImage.medium}' alt='cover' title='${v.title.romaji}' /></a>
+					<p class='w tc' title='${v.title.romaji}'>${v.title.native}</p>
+					<p class='w tc fs08'>(${v.title.english})</p>
+				</div>`);
+			});
+		}
+	});</script>
 </head>
 
 <body onload='init()' class='ani-all ts-all'>
@@ -163,12 +301,40 @@
 							<li>Photoshop</li>
 						</ul></div>
 					</div>
+					<div class='mt2 p3 th_windowBg round pb05-g fontCode a-ul'>
+						<p class='fs1-5'><b>Bio:</b></p><br>
+						Hello. I'm a junior/middle developer in various fields (check the information above), brimming with a fair share of ideas to implement.<br><br>
+						I strive to get acquainted with every aspect of the digital industry field, which includes: programming, software dev, gamedev, cybersecurity, illustration, vector graphics and more.<br><br>
+						<b>Occupation:</b> Currently I'm working full-time as a fullstack engineer in the SEO/website optimizations branch.<br><br>
+						<b>Hiring:</b> Even though I already have a job, I'm always seeking for improvement and better deals/conditions/specialities in my field (programming/development). Therefore, <b>feel free to contact me</b> (preferably by E-mail) anytime. I can also take freelance commissions.<br><br>
+						<b>Free time:</b> Most of the free time I spend on either: coding, watching something, gaming or going on bicycle adventures.
+					</div>
+					<div class='mt2 p3 th_windowBg round pb1-g fontCode'>
+						<p class='fs1-5'><b>Current system:</b></p><br>
+						<p><b>OC:</b> Windows 11, Arch Linux</p>
+						<p><b>MB:</b> ASROCK B650M PRO RS (AM5, mATX)</p>
+						<p><b>GPU:</b> Sapphire AMD Radeon RX 7800 XT PURE OC</p>
+						<p><b>CPU:</b> AMD Ryzen 5 7500F (6c/12T)</p>
+						<p><b>PSU:</b> PHANTEKS AMP GH 850W Gold ATX 3.1</p>
+						<p><b>RAM:</b> KingBank Sharp Blade White (DDR5, 6400 MHz, 16*2 GB)</p>
+						<p><b>SSD:</b> Fanxiang Custom Link S880</p>
+					</div>
 				</div>
+
 				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
 					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
+
+					<div id='spot_stats' class='mt2 p3 th_windowBg round pb05-g fontCode z1'>
+						<p class='fs1-5 mb1 bB pt nosel'>Spotify data <x class='fs08'>(click to show)</x></p>
+						<div class='hide'></div>
+					</div>
+					<div id='al_stats' class='mt2 p3 th_windowBg round pb05-g fontCode'>
+						<p class='fs1-5 mb1 bB pt nosel'>AniList stats <x class='fs08'>(click to show)</x></p>
+						<div class='hide'></div>
+					</div>
 				</div>
 			</div>
 		</div>
