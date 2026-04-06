@@ -10,7 +10,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.71.61.182"}'>
+	<meta name='va2meta' content='{"ver": "1.71.62.184"}'>
 
 	<style>
 		:root { --sectSpacing: 2rem; }
@@ -48,7 +48,7 @@
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
-			enable_prototypes();
+			enable_prototypes(); language('en');
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
 
 			// Socials
@@ -65,7 +65,7 @@
 			loop(projects, (i,v)=>{
 				mk(proj, `
 					<div class='w1-3 p2'>
-						<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
+						<div class='border round py1 px2 pt th_hovWBg ani-inf ani25 ani-shadow-hov' onclick='href("${v[0]}",1)'>
 							<p class='fs1-5'>${i}</p>
 							<p class='th_itemBg py1 px2 my1'>${v[1]}</p>
 						</div>
@@ -91,6 +91,7 @@
 				<li>Replaced Google resources with local copies (font-faces)</li>
 				<li>Added more colors!</li>
 				<li>Added some branding (logos from older Va2 version)</li>
+				<li>Added language support (not implemented on this webpage)</li>
 				<!--<li>Rewritten a license</li>-->
 				</ul>`);
 				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
@@ -283,8 +284,10 @@
 
 		<div id='Profile' class='sect z1'>
 			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
+				<!-- Left side -->
 				<div class='fs2 bB py1 mb2 w fontPixel'>| Profile</div>
-				<div class='w1-6-3 pr3 pb3'>
+				<div class='w1-6-3 pr3 pb3 ani-inf-g ani25-g ani-shadow-g-hov'>
+					<!-- Personal data -->
 					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
 						<p><b>Nicknames:</b> reineimi, reineimi_dev</p>
@@ -316,7 +319,8 @@
 							<li>Photoshop</li>
 						</ul></div>
 					</div>
-					<div class='mt2 p3 th_windowBg round pb05-g fontCode a-ul'>
+					<!-- Intro/Bio -->
+					<div class='mt2 p3 th_windowBg round pb05-g fontCode'>
 						<p class='fs1-5'><b>Bio:</b></p><br>
 						Hello. I'm a junior/middle developer in various fields (check the information above), brimming with a fair share of ideas to implement.<br><br>
 						I strive to get acquainted with every aspect of the digital industry field, which includes: programming, software dev, gamedev, cybersecurity, illustration, vector graphics and more.<br><br>
@@ -324,6 +328,7 @@
 						<b>Hiring:</b> Even though I already have a job, I'm always seeking for improvement and better deals/conditions/specialities in my field (programming/development). Therefore, <b>feel free to contact me</b> (preferably by E-mail) anytime. I can also take freelance commissions.<br><br>
 						<b>Free time:</b> Most of the free time I spend on either: coding, watching something, gaming or going on bicycle adventures.
 					</div>
+					<!-- System -->
 					<div class='mt2 p3 th_windowBg round pb1-g fontCode'>
 						<p class='fs1-5'><b>Current system:</b></p><br>
 						<p><b>OC:</b> Windows 11, Arch Linux</p>
@@ -336,17 +341,18 @@
 					</div>
 				</div>
 
-				<div class='w1-6-3'>
+				<!-- Right side -->
+				<div class='w1-6-3 ani-inf-g ani25-g'>
 					<img class='w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
 					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 
-					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1'>
+					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1 ani-shadow-hov'>
 						<p class='fs1-5 mb1 bB pt nosel pb1'>Spotify data <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
-					<div id='al_stats' class='mt2 p3 th_windowBg round fontCode'>
+					<div id='al_stats' class='mt2 p3 th_windowBg round fontCode ani-shadow-hov'>
 						<p class='fs1-5 mb1 bB pt nosel pb1'>AniList stats <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
