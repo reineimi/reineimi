@@ -12,3 +12,4 @@ https://reineimi.github.io/reineimi
 - https://discord.gg/rGMZ7GkxKu
 - https://aur.archlinux.org/account/reineimi
 - https://myanimelist.net/profile/reineimi
+- https://anilist.co/user/reineimi/
