@@ -134,7 +134,7 @@
 					romaji
 				  }
 				  coverImage {
-					medium
+					large
 				  }
 				  id
 				  siteUrl
@@ -213,24 +213,39 @@
 		}
 		function handleError(error) { console.error(error); }
 		function handleData(data) {
-			//console.log(data);
+			console.log(data);
 			const dt = data.data.User;
 			mk(emi('al_stats').item(1), `
-				<div class='f mr3-g'>
+				<div class='f w my3 m-g mb1-g fs1-3'>
 					<p><b>Entries</b>: ${dt.statistics.anime.count}</p>
 					<p><b>Score</b>: ${dt.statistics.anime.meanScore / 10}</p>
 					<p><b>Hours</b>: ${dt.statistics.anime.minutesWatched / 60}</p>
 				</div>
-				<div id='al_fav_list' class='f mt2 mb2-g'>
-					<p class='w tc fs1-5'>Favourites</p>
+				<div class='mt2'>
+					<p class='w tc fs1-5 mb2 bT pt2'>Genres</p>
+					<div id='al_gen_list' class='f diff cwhite m05-g'></div>
+				</div>
+				<div id='al_fav_list' class='f mt3'>
+					<p class='w tc fs1-5 bT pt2'>Favourites</p>
 				</div>
 			`);
+			loop(dt.statistics.anime.genres, (i,v)=>{
+				if (v.genre !== 'Ecchi') {
+					mk('al_gen_list', `
+					<div class='py1 px2 brS tc'>
+						<p class='pb05'><b class='cwhite'>${v.genre}</b></p>
+						${v.count} &nbsp; ${Math.trunc(v.meanScore * 10) / 100}
+					</div>`);
+				}
+			});
 			loop(dt.favourites.anime.nodes, (i,v)=>{
 				mk('al_fav_list', `
-				<div class='w1-3 f'>
-					<a class='m' href='${v.siteUrl}' target='_blank'><img src='${v.coverImage.medium}' alt='cover' title='${v.title.romaji}' /></a>
-					<p class='w tc' title='${v.title.romaji}'>${v.title.native}</p>
-					<p class='w tc fs08'>(${v.title.english})</p>
+				<div class='w1-3 f w-g p2'>
+					<a class='m p2' href='${v.siteUrl}' target='_blank'><img class='w brS' src='${v.coverImage.large}' alt='cover' title='${v.title.romaji}' /></a>
+					<div class='w tc th_itemBg brS p1 fw6' title='${v.title.romaji}'>
+						<p>${v.title.native}</p>
+						<p class='fs08'>(${v.title.english})</p>
+					</div>
 				</div>`);
 			});
 		}
@@ -327,12 +342,12 @@
 					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 
-					<div id='spot_stats' class='mt2 p3 th_windowBg round pb05-g fontCode z1'>
-						<p class='fs1-5 mb1 bB pt nosel'>Spotify data <x class='fs08'>(click to show)</x></p>
+					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1'>
+						<p class='fs1-5 mb1 bB pt nosel pb1'>Spotify data <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
-					<div id='al_stats' class='mt2 p3 th_windowBg round pb05-g fontCode'>
-						<p class='fs1-5 mb1 bB pt nosel'>AniList stats <x class='fs08'>(click to show)</x></p>
+					<div id='al_stats' class='mt2 p3 th_windowBg round fontCode'>
+						<p class='fs1-5 mb1 bB pt nosel pb1'>AniList stats <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
 				</div>
