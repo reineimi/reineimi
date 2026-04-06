@@ -65,7 +65,7 @@
 			loop(projects, (i,v)=>{
 				mk(proj, `
 					<div class='w1-3 p2'>
-						<div class='border round py1 px2 pt th_hovWBg ani-inf ani25 ani-shadow-hov' onclick='href("${v[0]}",1)'>
+						<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
 							<p class='fs1-5'>${i}</p>
 							<p class='th_itemBg py1 px2 my1'>${v[1]}</p>
 						</div>
@@ -277,7 +277,7 @@
 	<main id='Main' class='hide'>
 		<div id='Colors' class='sect f mb0'>
 			<div class='m ml0 w1-3 mb2'>
-				<a class='block th_windowFg br shadow fontX fs3 fw2 fw5-hov tc nosel py1' href='#Projects'>V A <x class='iblock rot90 c ni_x'>I I</x> I I A</a>
+				<a class='block th_windowFg br shadow fontX fs3 fw2 fw5-hov tc nosel py1 ani-inf ani25 ani-shadow-hov' href='#Projects'>V A <x class='iblock rot90 c ni_x'>I I</x> I I A</a>
 			</div>
 			<div class='m mr0 mb0 th_windowFg round shadow p2 f fw9 nosel brRB0 g05 m0-g'></div>
 		</div>
@@ -286,7 +286,7 @@
 			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
 				<!-- Left side -->
 				<div class='fs2 bB py1 mb2 w fontPixel'>| Profile</div>
-				<div class='w1-6-3 pr3 pb3 ani-inf-g ani25-g ani-shadow-g-hov'>
+				<div class='w1-6-3 pr3 pb3'>
 					<!-- Personal data -->
 					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
@@ -342,17 +342,17 @@
 				</div>
 
 				<!-- Right side -->
-				<div class='w1-6-3 ani-inf-g ani25-g'>
+				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
 					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 
-					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1 ani-shadow-hov'>
+					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1'>
 						<p class='fs1-5 mb1 bB pt nosel pb1'>Spotify data <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
-					<div id='al_stats' class='mt2 p3 th_windowBg round fontCode ani-shadow-hov'>
+					<div id='al_stats' class='mt2 p3 th_windowBg round fontCode'>
 						<p class='fs1-5 mb1 bB pt nosel pb1'>AniList stats <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
