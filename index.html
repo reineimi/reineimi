@@ -10,7 +10,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.71.62.184"}'>
+	<meta name='va2meta' content='{"ver": "1.71.62.188"}'>
 
 	<style>
 		:root { --sectSpacing: 2rem; }
@@ -235,7 +235,7 @@
 					mk('al_gen_list', `
 					<div class='py1 px2 brS tc'>
 						<p class='pb05'><b class='cwhite'>${v.genre}</b></p>
-						${v.count} &nbsp; ${Math.trunc(v.meanScore * 10) / 100}
+						<p class='fs08 fw5'>${v.count} &nbsp; ${Math.trunc(v.meanScore * 10) / 100}</p>
 					</div>`);
 				}
 			});
@@ -257,7 +257,7 @@
 	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
 			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
-			<a class='fs2-5 m mx0 px1 fontPixel c-hov' href='https://github.com/reineimi'>reineimi</a>
+			<a class='fs2 m mx0 px1 fontPixel c-hov' href='https://github.com/reineimi'>reineimi</a>
 			<div class='m right'>
 				<div class='round center th_itemBg py1 px2 g2'>
 					<p class='btn_notifs gicon c-hov pt fs2' onclick='notifs.show()'>notifications</p>
@@ -285,7 +285,7 @@
 		<div id='Profile' class='sect z1'>
 			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
 				<!-- Left side -->
-				<div class='fs2 bB py1 mb2 w fontPixel'>| Profile</div>
+				<div class='fs1-5 ls3 fontPrint bB py1 mb2 w'>| Profile</div>
 				<div class='w1-6-3 pr3 pb3'>
 					<!-- Personal data -->
 					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
@@ -294,16 +294,19 @@
 						<p><b>E-mail:</b> <a href='mailto:reineimi.dev@gmail.com'>reineimi.dev@gmail.com</a></p>
 						<p><b>Gender:</b> Male</p>
 						<p><b>Birthdate:</b> 2001.01.03</p>
+						<p><b>Personality:</b> ISTP-A (as of 2025)</p>
 						<p><b>Languages:</b> English, Russian, Japanese</p>
 						<p><b>Hobbies:</b> Programming, music, art, gaming, photography, bike touring</p>
-						<div><b>Programming languages:</b><ul>
+						<div><b>Programming languages:</b>
+						<ul class='my05 mb05-g'>
 							<li>Lua (middle/senior) (&gt;5y)</li>
 							<li>JS (middle/senior) (&gt;3y)</li>
 							<li>PHP (junior/middle) (&gt;1y)</li>
 							<li>C++ (entry) (&lt;1y)</li>
 							<li>bash (junior) (~1y)</li>
 						</ul></div>
-						<div><b>Skills:</b><ul>
+						<div><b>Skills:</b>
+						<ul class='my05 mb05-g'>
 							<li>(&gt;5y) Programming</li>
 							<li>(&lt;1y) Game development</li>
 							<li>(&gt;3y) Web development</li>
@@ -318,15 +321,25 @@
 							<li>Photography</li>
 							<li>Photoshop</li>
 						</ul></div>
+						<div><b>Favourite:</b>
+						<ul class='my05 mb05-g'>
+							<li><c>Music genres:</c> melodic dubstep, neoclassical/instrumental (strings, piano), electronic ambient, R&amp;B, j-pop/rock, sad pop, electro house, downtempo, metalcore</li>
+							<li><c>Movie/TV genres:</c> drama, romance, realistic fiction, fantasy, musical, documentary</li>
+							<li><c>Video game genres:</c> sandbox, RPG, MOBA, adventure, strategy, simulation</li>
+							<li><c>Literature genres:</c> history, theory, science fiction, mythology (not really into reading though)</li>
+							<li><c>Discussion topics:</c> art, music, hobbies, food, anime, IT (coding/dev/cybersec), traveling, theory, culture, psychology</li>
+						</ul></div>
 					</div>
 					<!-- Intro/Bio -->
-					<div class='mt2 p3 th_windowBg round pb05-g fontCode'>
+					<div class='mt2 p3 th_windowBg round pb05-g fontCode a-ul'>
 						<p class='fs1-5'><b>Bio:</b></p><br>
 						Hello. I'm a junior/middle developer in various fields (check the information above), brimming with a fair share of ideas to implement.<br><br>
 						I strive to get acquainted with every aspect of the digital industry field, which includes: programming, software dev, gamedev, cybersecurity, illustration, vector graphics and more.<br><br>
+						In job, I prefer order, simplicity, minimalism, punctuality, structuring, and... a bit of freedom. In other words, when the objectives are clear, information resources are available, and I have multiple choices on how to achieve the best outcome.<br><br>
 						<b>Occupation:</b> Currently I'm working full-time as a fullstack engineer in the SEO/website optimizations branch.<br><br>
-						<b>Hiring:</b> Even though already employed, I'm always seeking for improvement and better deals/conditions/specialities in my field (programming/development). Therefore, <b>feel free to contact me</b> (preferably by E-mail) anytime. I can also take freelance commissions.<br><br>
-						<b>Free time:</b> I spend most of the free time on either of the following: coding, watching media, gaming, drawing or bike touring (cycling).
+						<b>Hiring:</b> Even though already employed, I'm always seeking for improvement and better deals/conditions/specialities in my field (programming/development). Therefore, <a class='c' href="mailto:reineimi.dev@gmail.com">feel free to contact me anytime</a>. I can also take freelance commissions.<br><br>
+						<b>Free time:</b> I spend most of the free time on either of the following: coding, watching audio-visual media, gaming, drawing or bike touring (cycling).<br><br>
+						<i>(Head to the <c><a href='#Notes'>Notes/extra</a></c> section for additional info.)</i>
 					</div>
 					<!-- System -->
 					<div class='mt2 p3 th_windowBg round pb1-g fontCode'>
@@ -345,10 +358,10 @@
 				<div class='w1-6-3'>
 					<img class='w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')"
 						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
-					<p class='w fs2 mt1 mb2 fontPixel'>| Social links:</p>
+					<p class='w fs1-5 ls3 fontPrint mt2 mb3'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
 
-					<div id='spot_stats' class='mt2 p3 th_windowBg round fontCode z1'>
+					<div id='spot_stats' class='mt4 p3 th_windowBg round fontCode z1'>
 						<p class='fs1-5 mb1 bB pt nosel pb1'>Spotify data <x class='fs08'>(click to load)</x></p>
 						<div class='hide'></div>
 					</div>
@@ -362,7 +375,7 @@
 
 		<div id='Projects' class='sect'>
 			<div class='th_windowFg round shadow p3 pt1 f'>
-				<div class='fs2 bB py1 mb2 w fontPixel'>| Projects</div>
+				<div class='fs1-5 ls3 fontPrint bB py1 mb2 w'>| Projects</div>
 				<div class='projects w f'></div>
 				<p>... <a href='https://github.com/reineimi?tab=repositories' target='_blank'>and more</a></p>
 			</div>
@@ -370,8 +383,10 @@
 
 		<div id='Notes' class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1'>
-				<div class='fs2 bB py1 mb2 fontPixel'>| Notes</div>
+				<div class='fs1-5 ls3 fontPrint bB py1 mb2'>| Notes/extra</div>
 				<div class='bdiff adiff pl2-g mb2-g a-bold'>
+					<p>When talking abot learning new things... You know, there's a lot of different approaches on how to do that more efficiently, but in the end, I prefer the most direct approach:
+						technical documentations, manuals, Wikipedias and practical examples. And the latter is actually the best, at least in my experience. Therefore, I love teaching people by showing how stuff's done in practice, just as much as I love leaving short, well-structured documentations in the projects I work with.</p>
 					<p>A little about fullstack: I worked with most of the well-known CMS, but haven't touched a single framework yet (except for bootstrap). I prefer using 
 						<a href='https://github.com/reineimi/va2/tree/main/lib' target='_blank'>my own library</a> when it comes to web-development.</p>
 					<p>I once tried making a game from scratch using C++ and SDL2, but kinda gave up and went for the LÖVE (love2d.org) framework. Still in process of making my game engine using it.</p>
@@ -383,7 +398,7 @@
 
 		<div id='Va2' class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1'>
-				<div class='fs2 bB py1 mb2 fontPixel'>| Va2 frontend embedding</div>
+				<div class='fs1-5 ls3 fontPrint bB py1 mb2'>| Va2 frontend embedding</div>
 				<pre class='nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 &lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 &lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
@@ -392,7 +407,7 @@
 
 		<div id='Palette' class='sect f end hide'>
 			<div class='th_windowFg round shadow p3 pt1 w f m-g'>
-				<div class='w fs2 bB py1 mb2 fontPixel'>| Palette</div>
+				<div class='w fs1-5 ls3 fontPrint bB py1 mb2'>| Palette</div>
 				<div class='ml0 mt0 pb3 fontCode fs1-2'>
 					<p>1. Difference (cdiff)</p>
 					<p>2. Multiple (cmult)</p>
