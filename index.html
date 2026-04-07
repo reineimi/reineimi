@@ -135,6 +135,7 @@
 					romaji
 				  }
 				  coverImage {
+					medium
 					large
 				  }
 				  id
@@ -241,7 +242,7 @@
 			});
 			loop(dt.favourites.anime.nodes, (i,v)=>{
 				mk('al_fav_list', `
-				<div class='w1-3 f w-g p2'>
+				<div class='w1-4 f w-g p1'>
 					<a class='m p2' href='${v.siteUrl}' target='_blank'><img class='w brS' src='${v.coverImage.large}' alt='cover' title='${v.title.romaji}' /></a>
 					<div class='w tc th_itemBg brS p1 fw6' title='${v.title.romaji}'>
 						<p>${v.title.native}</p>
