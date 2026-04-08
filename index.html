@@ -1,16 +1,58 @@
 <!DOCTYPE html><html lang='en'>
 <head><meta charset='utf-8'><meta name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover'>
 	<!-- Metadata -->
-	<title>@reineimi</title>
-	<meta name='title' content='霊音・永旻 (@reineimi) profile and social links'>
-	<meta name='description' content='Internet profile and all social links of the user 霊音・永旻 (@reineimi / @reineimi.dev)'>
-	<meta name='keywords' content='social,links,profile,personal page,resume,portfolio'>
+	<title>霊音・永旻 (@reineimi)</title>
+	<meta name='title' content='霊音・永旻 (@reineimi) - Developer, programmer'>
+	<meta name='description' content='Profile page of the developer/programmer 霊音・永旻 (@reineimi), containing social links, personal and commercial information.'>
+	<meta name='keywords' content='reineimi,social links,profile page,personal page,resume,portfolio,internet user profile'>
 	<!-- Core modules -->
+	<!-- --
+	<script src='va2/lib/va2.js' async></script>
+	<link rel='stylesheet' href='va2/lib/va2.css'><!-- -->
+	<!-- -->
 	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
-	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'>
-	<meta name='va2meta' content='{"ver": "1.71.62.188"}'>
+	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
+	<meta name='va2meta' content='{"ver": "1.72.63.190"}'>
+
+	<script type="application/ld+json">{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "霊音永旻",
+		"givenName": "永旻",
+		"familyName": "霊音",
+		"additionalName": "Eimi, Rein",
+		"birthDate": "2001-01-03",
+		"jobTitle": "Developer, programmer",
+		"email": "reineimi.dev@gmail.com",
+		"url": "https://reineimi.github.io/reineimi/",
+		"knowsLanguage": [
+			{
+				"@type": "Language",
+				"name": "English",
+				"alternateName": "en"
+			},
+			{
+				"@type": "Language",
+				"name": "Russian",
+				"alternateName": "ru"
+			},
+			{
+				"@type": "Language",
+				"name": "Japanese",
+				"alternateName": "jp"
+			}
+		],
+		"owns": {
+			"@type": "SoftwareApplication",
+			"name": "VA二llA (Vanilla, Va2)",
+			"url": "https://github.com/reineimi/va2",
+			"applicationCategory": "Development Software",
+			"applicationSubCategory": "Open source software",
+			"operatingSystem": "Linux, Windows 10, Windows 11"
+		}
+	}</script>
 
 	<style>
 		:root { --sectSpacing: 2rem; }
@@ -48,8 +90,25 @@
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
-			enable_prototypes(); language('en');
+			enable_prototypes(); va2lang('en');
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
+			//extern.js('va2/lib/va2box.js', 'va2box');
+
+			// Notifs
+			va2.env.init[1] = ()=>{
+				notify(`Va2 updates:<ul class='my0 py0'>
+				<li>Added notification tray</li>
+				<li>Added animation classes</li>
+				<li>Rewritten a lot of CSS (there are major style changes)</li>
+				<li>Replaced Google resources with local copies (font-faces)</li>
+				<li>Added more colors!</li>
+				<li>Added some branding (logos from older Va2 version)</li>
+				<li>Added language support (not implemented on this webpage)</li>
+				<!--<li>Rewritten a license</li>-->
+				</ul>`);
+				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
+			}
+			init();
 
 			// Socials
 			const socials = qem('.socials')[0];
@@ -82,21 +141,6 @@
 				}, 'Colors');
 			});
 
-			// Notifs
-			va2.env.init[1] = ()=>{
-				notify(`Va2 updates:<ul class='my0 py0'>
-				<li>Added notification tray</li>
-				<li>Added animation classes</li>
-				<li>Rewritten a lot of CSS (there are major style changes)</li>
-				<li>Replaced Google resources with local copies (font-faces)</li>
-				<li>Added more colors!</li>
-				<li>Added some branding (logos from older Va2 version)</li>
-				<li>Added language support (not implemented on this webpage)</li>
-				<!--<li>Rewritten a license</li>-->
-				</ul>`);
-				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
-			}
-
 			// Spotify
 			emi('spot_stats').item(0).onclick = function() {
 				if (!va2.temp.spot_loaded) {
@@ -105,6 +149,12 @@
 				}
 				tshow(this.root().item(1));
 			}
+
+			qem('.myage')[0].innerHTML = ` (${Math.floor((Date.now() - new Date('2001-01-03')) / 3.15576e+10)} y.o.)`;
+			mk('va2ctxtItems', `
+				<p><a href='https://github.com/reineimi/reineimi'>Back to GitHub</a></p>
+				<p><a href='mailto:reineimi.dev@gmail.com'>Contact me by E-mail</a></p>
+			`);
 		});
 	}</script>
 
@@ -254,7 +304,7 @@
 	});</script>
 </head>
 
-<body onload='init()' class='ani-all ts-all'>
+<body class='ani-all ts-all'>
 	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
 			<div class='m ml1 mr1 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
@@ -300,7 +350,7 @@
 						<p><b>Nicknames:</b> reineimi, reineimi_dev</p>
 						<p><b>E-mail:</b> <a href='mailto:reineimi.dev@gmail.com'>reineimi.dev@gmail.com</a></p>
 						<p><b>Gender:</b> Male</p>
-						<p><b>Birthdate:</b> 2001.01.03</p>
+						<p><b>Birthdate:</b> 2001.01.03<x class='myage'></x></p>
 						<p><b>Personality:</b> ISTP-A (as of 2025)</p>
 						<p><b>Languages:</b> English, Russian, Japanese</p>
 						<p><b>Hobbies:</b> Programming, music, art, gaming, photography, bike touring</p>
