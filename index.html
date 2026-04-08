@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.72.63.190"}'>
+	<meta name='va2meta' content='{"ver": "1.74.66.192"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -92,7 +92,11 @@
 		window.addEventListener('load', ()=>{
 			enable_prototypes(); va2lang('en');
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
-			//extern.js('va2/lib/va2box.js', 'va2box');
+			extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
+
+			qem('.imageA')[0].style.backgroundImage = 'url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)';
+			qem('.imageB')[0].src = 'https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg';
+			qem('.myage')[0].innerHTML = ` (${Math.floor((Date.now() - new Date('2001-01-03')) / 3.15576e+10)} y.o.)`;
 
 			// Notifs
 			va2.env.init[1] = ()=>{
@@ -136,24 +140,25 @@
 			loop(colors, (_,color)=>{
 				const em = create('div', {
 					className: 'center ch3 brc scale15-hov z1-hov ts01 pt '+color,
-					innerHTML: `<p class='ch1-5 p05 brc' style='background:var(--${color})'></p>`,
+					innerHTML: `<p class='m ch1-5 p05 brc' style='background:var(--${color})'></p>`,
 					onclick: ()=>{ css('accent', `var(--${color})`); }
 				}, 'Colors');
 			});
 
 			// Spotify
-			emi('spot_stats').item(0).onclick = function() {
+			emi('spot_stats').item(1).onclick = function() {
 				if (!va2.temp.spot_loaded) {
-					mk(this.root().item(1), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
+					mk(this.root().item(2), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
 					va2.temp.spot_loaded = 1;
 				}
-				tshow(this.root().item(1));
+				tshow(this.root().item(2));
 			}
 
-			qem('.myage')[0].innerHTML = ` (${Math.floor((Date.now() - new Date('2001-01-03')) / 3.15576e+10)} y.o.)`;
+			// Context menu
 			mk('va2ctxtItems', `
-				<p><a href='https://github.com/reineimi/reineimi'>Back to GitHub</a></p>
-				<p><a href='mailto:reineimi.dev@gmail.com'>Contact me by E-mail</a></p>
+				<a href='#Sandbox' onclick='va2.mod.box.add("Sandbox")'>Create new object (<c>Va2box</c>)</a>
+				<a href='https://github.com/reineimi/reineimi'>Back to GitHub</a>
+				<a href='mailto:reineimi.dev@gmail.com'>Contact me by E-mail</a>
 			`);
 		});
 	}</script>
@@ -251,12 +256,12 @@
 					variables: variables
 				})
 			};
-		emi('al_stats').item(0).onclick = function() {
+		emi('al_stats').item(1).onclick = function() {
 			if (!va2.temp.AL_loaded) {
 				fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
 				va2.temp.AL_loaded = 1;
 			}
-			tshow(this.root().item(1));
+			tshow(this.root().item(2));
 		}
 		function handleResponse(response) {
 			return response.json().then(function (json) {
@@ -267,7 +272,7 @@
 		function handleData(data) {
 			console.log(data);
 			const dt = data.data.User;
-			mk(emi('al_stats').item(1), `
+			mk(emi('al_stats').item(2), `
 				<div class='f w my3 m-g mb1-g fs1-3'>
 					<p><b>Entries</b>: ${dt.statistics.anime.count}</p>
 					<p><b>Score</b>: ${dt.statistics.anime.meanScore / 10}</p>
@@ -318,7 +323,7 @@
 		</header>
 	</div>
 
-	<div class='fill bgfill zn1' style='background-image: url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)'></div>
+	<div class='imageA fill bgfill zn1'></div>
 	<div class='fill zn1 th_windowBg o06'></div>
 
 	<div id='Intro' style='width: 100%; height: 100dvh; margin: none; display: flex'>
@@ -413,8 +418,7 @@
 
 				<!-- Right side -->
 				<div class='w1-6-3'>
-					<img class='w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')"
-						src='https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg'>
+					<img class='imageB w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')">
 					<div id='Colors' class='center m05-g m my2'></div>
 					<p class='w fs1-5 ls2 fontPrint mt2 mb3'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
@@ -454,48 +458,30 @@
 			</div>
 		</div>
 
-		<div id='Va2' class='sect'>
-			<div class='notes th_windowFg round shadow p3 pt1'>
-				<div class='fs1-5 ls2 fontPrint bB py1 mb2'>| Va2 frontend embedding</div>
-				<pre class='nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
-&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
-&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
+		<div class='sect'>
+			<div class='w th_windowFg p3 pt1 br shadow'>
+				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w'>| Sandbox area (<c>Va2box</c>)</div>
+				<div id='Sandbox' class='w f'></div>
 			</div>
 		</div>
 
-		<div id='Palette' class='sect f end hide'>
-			<div class='th_windowFg round shadow p3 pt1 w f m-g'>
-				<div class='w fs1-5 ls2 fontPrint bB py1 mb2'>| Palette</div>
-				<div class='ml0 mt0 pb3 fontCode fs1-2'>
-					<p>1. Difference (cdiff)</p>
-					<p>2. Multiple (cmult)</p>
-					<p>3. cmult</p>
-					<p>4. cmult, mult</p>
-					<p>5. cwhite, mult</p>
-				</div>
-				<div class='mr0 mb1-g fw7-hov'>
-					<div class='f end cdiff th_windowBg my05-g mx1-g py1-g px1-g tc br1'>
-						<p>Yellow</p><p>Green</p><p>Blue</p><p>Red</p><p>Purple</p><p>Skyblue</p>
-						<p>Orange</p><p>Teal</p><p>Pink</p><p>Cyan</p><p>Brown</p><p>Crimson</p>
-					</div>
-					<div class='f end cmult th_windowBg my05-g mx1-g py1-g px1-g tc br1'>
-						<p>Red</p><p>Orange</p><p>Yellow</p><p>Green</p><p>Teal</p><p>Cyan</p>
-						<p>Skyblue</p><p>Blue</p><p>Purple</p><p>Pink</p><p>Crimson</p><p>Red</p>
-					</div>
-					<div class='f end cmult my05-g mx1-g py1-g px1-g tc'>
-						<p>Red</p><p>Orange</p><p>Yellow</p><p>Green</p><p>Teal</p><p>Cyan</p>
-						<p>Skyblue</p><p>Blue</p><p>Purple</p><p>Pink</p><p>Crimson</p><p>Red</p>
-					</div>
-					<div class='f cmult mult m05-g py2-g px2-g tc br1-g'>
-						<p>Dark Red</p><p>Dark Orange</p><p>Dark Yellow</p><p>Dark Green</p><p>Dark Teal</p><p>Dark Cyan</p>
-						<p>Dark Skyblue</p><p>Dark Blue</p><p>Dark Purple</p><p>Dark Pink</p><p>Dark Crimson</p><p>Dark Red</p>
-					</div>
-					<div class='f cwhite mult m05-g py2-g px2-g tc br1-g'>
-						<p>Dark Red</p><p>Dark Orange</p><p>Dark Yellow</p><p>Dark Green</p><p>Dark Teal</p><p>Dark Cyan</p>
-						<p>Dark Skyblue</p><p>Dark Blue</p><p>Dark Purple</p><p>Dark Pink</p><p>Dark Crimson</p><p>Dark Red</p>
-					</div>
-					
-				</div>
+		<div id='Va2' class='sect'>
+			<div class='notes th_windowFg round shadow p3 pt1'>
+				<div class='fs1-5 ls2 fontPrint bB py1 mb2'>| Va2 frontend embedding</div>
+				<p class='fs1-2 mb1'>General (no pre-load, no version):</p>
+				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
+	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
+	&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
+				<p class='fs1-2 my1'>General (pre-load, version included):</p>
+				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
+	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
+	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
+	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
+	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.74.66.192"}'&gt;</pre>
+				<p class='fs1-2 my1'>Va2box module:</p>
+				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
+	&lt;script src='https://reineimi.github.io/va2/lib/va2box.js' async&gt;&lt;/script&gt;</pre>
 			</div>
 		</div>
 
