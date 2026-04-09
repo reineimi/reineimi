@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.75.67.196"}'>
+	<meta name='va2meta' content='{"ver": "1.76.68.197"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -57,7 +57,6 @@
 	<style>
 		:root { --sectSpacing: 2rem; }
 		body { display: block; background: #555; }
-		b { color: var(--accent); }
 		li::marker { content: '> '; color: var(--darkgreen); }
 		.hide { display: none; }
 		.socials > a { display: block; text-decoration: none; background: #555; }
@@ -109,8 +108,16 @@
 				<li>Added more colors!</li>
 				<li>Added some branding (logos from older Va2 version)</li>
 				<li>Added language support (not implemented on this webpage)</li>
+				<li>Implemented window logic (you can now create windows)</li>
+				<li>Implemented context menu logic</li>
+				<li>Currently rewriting the Va2Box module (check the next message)</li>
 				<!--<li>Rewritten a license</li>-->
 				</ul>`);
+				notify(`<p class='fs1-4 mb1'>Va2Box <x class='fcx'>(work in progress)</x></p>
+				I have temporarily integrated <a href='https://github.com/reineimi/va2/blob/main/lib/va2box.js' target='_blank'>Va2Box</a>
+				on this page. What does it do: it allows you to use the Va2 frontend library to create static HTML content.
+				In other words, designing a web page/application. To use it, just close the notification tray and use the <b>right click</b> or <b>long tap</b> to open the menu.
+				<p class='fs09 fcx pt05'>(Since this is a work-in-progress, the functionality may be limited.)</p>`, 'a-c a-ul');
 				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
 			}
 			init();
@@ -276,7 +283,7 @@
 			console.log(data);
 			const dt = data.data.User;
 			mk(emi('al_stats').item(2), `
-				<div class='f w my3 m-g mb1-g fs1-3'>
+				<div class='f w my3 m-g mb1-g fs1-3 b-c'>
 					<p><b>Entries</b>: ${dt.statistics.anime.count}</p>
 					<p><b>Score</b>: ${dt.statistics.anime.meanScore / 10}</p>
 					<p><b>Hours</b>: ${dt.statistics.anime.minutesWatched / 60}</p>
@@ -351,7 +358,7 @@
 			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
 				<!-- Left side -->
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w f'>| Profile</div>
-				<div class='w1-6-3 pr3 pb3'>
+				<div class='w1-6-3 pr3 pb3 b-c'>
 					<!-- Personal data -->
 					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
@@ -362,16 +369,16 @@
 						<p><b>Personality:</b> ISTP-A (as of 2025)</p>
 						<p><b>Languages:</b> English, Russian, Japanese</p>
 						<p><b>Hobbies:</b> Programming, music, art, gaming, photography, bike touring</p>
-						<div><b>Programming languages:</b>
-						<ul class='my05 mb05-g'>
+						<b>Programming languages:</b>
+						<ul class='mt05 mb05-g'>
 							<li>Lua (middle/senior) (&gt;5y)</li>
 							<li>JS (middle/senior) (&gt;3y)</li>
 							<li>PHP (junior/middle) (&gt;1y)</li>
 							<li>C++ (entry) (&lt;1y)</li>
 							<li>bash (junior) (~1y)</li>
-						</ul></div>
-						<div><b>Skills:</b>
-						<ul class='my05 mb05-g'>
+						</ul>
+						<b>Skills:</b>
+						<ul class='mt05 mb05-g'>
 							<li>(&gt;5y) Programming</li>
 							<li>(&lt;1y) Game development</li>
 							<li>(&gt;3y) Web development</li>
@@ -385,15 +392,15 @@
 							<li>Cybersecurity (kernel modules, nftables, firejail, vbox)</li>
 							<li>Photography</li>
 							<li>Photoshop</li>
-						</ul></div>
-						<div><b>Favourite:</b>
-						<ul class='my05 mb05-g'>
+						</ul>
+						<b>Favourite:</b>
+						<ul class='mt05 mb05-g'>
 							<li><c>Music genres:</c> melodic dubstep, neoclassical/instrumental (strings, piano), electronic ambient, R&amp;B, j-pop/rock, sad pop, electro house, downtempo, metalcore</li>
 							<li><c>Movie/TV genres:</c> drama, romance, realistic fiction, fantasy, musical, documentary</li>
 							<li><c>Video game genres:</c> sandbox, RPG, MOBA, adventure, strategy, simulation</li>
 							<li><c>Literature genres:</c> history, theory, science fiction, mythology (not really into reading though)</li>
 							<li><c>Discussion topics:</c> art, music, hobbies, food, anime, IT (coding/dev/cybersec), traveling, theory, culture, psychology</li>
-						</ul></div>
+						</ul>
 					</div>
 					<!-- Intro/Bio -->
 					<div class='mt2 p3 th_windowBg round pb05-g fontCode a-ul'>
@@ -481,7 +488,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.75.67.196"}'&gt;</pre>
+	&lt;meta name='va2meta' content='{"ver": "1.76.68.197"}'&gt;</pre>
 				<p class='fs1-2 my1'>Va2box module:</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script src='https://reineimi.github.io/va2/lib/va2box.js' async&gt;&lt;/script&gt;</pre>
