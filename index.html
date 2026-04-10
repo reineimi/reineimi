@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.76.68.197"}'>
+	<meta name='va2meta' content='{"ver": "1.79.70.200"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -118,6 +118,15 @@
 				on this page. What does it do: it allows you to use the Va2 frontend library to create static HTML content.
 				In other words, designing a web page/application. To use it, just close the notification tray and use the <b>right click</b> or <b>long tap</b> to open the menu.
 				<p class='fs09 fcx pt05'>(Since this is a work-in-progress, the functionality may be limited.)</p>`, 'a-c a-ul');
+				notify("<x class='fs1-5'><c>Va2Box:</c> How to start</x><ol class='pb1'>"+
+				"<li>Close the notification tray and press <c>Right click</c> or <c>Long tap</c>;</li>"+
+				"<li>In the menu, click <c>Create new object</c>;</li>"+
+				"<li>First, change <b>Template: <x class='btn px1 fs06 borderFg'>None</x></b> to <b>Template: <x class='btn px1 fs06 borderFg'>Section</x></b>;</li>"+
+				"<li>Then click <x class='btn green cwhite px2 fs06'>Append</x>;</li>"+
+				"<li>In the new window, select <b>Template: <x class='btn px1 fs06 borderFg'>Section Block</x></b>.</li></ol>"+
+				"Congradulations, you have created your first <b>section</b>!<br>"+
+				"Now you can click <x class='btn green cwhite px2 fs06'>Append</x> again "+
+				"(in the right/bottom window) and close the previous 2 windows.");
 				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
 			}
 			init();
@@ -149,7 +158,7 @@
 				const em = create('div', {
 					className: 'center ch3 brc scale15-hov z1-hov ts01 pt '+color,
 					innerHTML: `<p class='m ch1-5 p05 brc' style='background:var(--${color})'></p>`,
-					onclick: ()=>{ css('accent', `var(--${color})`); }
+					onclick: ()=>{ cssvar('accent', `var(--${color})`); }
 				}, 'Colors');
 			});
 
@@ -164,7 +173,7 @@
 
 			// Context menu
 			mk('va2ctxtItems', `
-				<a href='#Sandbox' onclick='va2.mod.box.add("Sandbox")'>Create new object (<c>Va2box</c>)</a>
+				<p onclick='va2.mod.box.add("Sandbox"); scrollto("Sandbox")'>Create new object (<c>Va2box</c>)</p>
 				<p onclick='windows.add(); hide(emroot(this, 3))'>Create empty window</p>
 				<p onclick='windows.openAll(); hide(emroot(this, 3))'>Open all windows</p>
 				<a href='https://github.com/reineimi/reineimi'>Back to GitHub</a>
@@ -322,8 +331,8 @@
 <body class='ani-all ts-all'>
 	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
-			<div class='m ml1 mr1 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
-			<div class='m mx0 ls2 f m-g'><p class='fs1-5 pr2 pb05 nil o04'>\</p> <a class='fs2 fontPixel c-hov' href='https://github.com/reineimi'>reineimi</a></div>
+			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
+			<div class='m mx0 ls2 f m-g'><a class='fs2 fontFancy c-hov' href='https://github.com/reineimi'>Reineimi</a></div>
 			<div class='m right'>
 				<div class='round center th_itemBg py1 px2 g2'>
 					<p class='btn_notifs gicon c-hov pt fs2' onclick='notifs.show()'>notifications</p>
@@ -469,7 +478,7 @@
 		</div>
 
 		<div class='sect'>
-			<div class='w th_windowFg p3 pt1 br shadow'>
+			<div class='w th_windowBg p3 pt1 br shadow'>
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w'>| Sandbox area (<c>Va2box</c>)</div>
 				<div id='Sandbox' class='w f'></div>
 			</div>
@@ -488,10 +497,15 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.76.68.197"}'&gt;</pre>
-				<p class='fs1-2 my1'>Va2box module:</p>
+	&lt;meta name='va2meta' content='{"ver": "1.79.70.200"}'&gt;</pre>
+				<p class='fs1-2 my1'>Va2box module (and Prototypes):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
-	&lt;script src='https://reineimi.github.io/va2/lib/va2box.js' async&gt;&lt;/script&gt;</pre>
+	&lt;script&gt;
+	window.addEventListener('load', ()=>{
+		extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
+		init(); enable_prototypes();
+	});
+	&lt;/script&gt;</pre>
 			</div>
 		</div>
 
