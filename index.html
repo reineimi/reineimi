@@ -6,15 +6,15 @@
 	<meta name='description' content='Profile page of the developer/programmer 霊音・永旻 (@reineimi), containing social links, personal and commercial information.'>
 	<meta name='keywords' content='reineimi,social links,profile page,personal page,resume,portfolio,internet user profile'>
 	<!-- Core modules -->
-	<!-- --
+	<!-- -->
 	<script src='va2/lib/va2.js' async></script>
 	<link rel='stylesheet' href='va2/lib/va2.css'><!-- -->
-	<!-- -->
+	<!-- --
 	<script src='https://reineimi.github.io/va2/lib/va2.js' async></script>
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.80.71.201"}'>
+	<meta name='va2meta' content='{"ver": "1.82.74.202"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -91,8 +91,8 @@
 		window.addEventListener('load', ()=>{
 			enable_prototypes(); va2lang('en');
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
-			//extern.js('va2/lib/va2box.js', 'va2box');
-			extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
+			extern.js('va2/lib/va2box.js', 'va2box');
+			//extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
 
 			qem('.imageA')[0].style.backgroundImage = 'url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)';
 			qem('.imageB')[0].src = 'https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg';
@@ -174,11 +174,11 @@
 
 			// Context menu
 			mk('va2ctxtItems', `
-				<p onclick='va2.mod.box.add("Sandbox"); scrollto("Sandbox")'>Create new object (<c>Va2box</c>)</p>
-				<p onclick='windows.add(); hide(emroot(this, 3))'>Create empty window</p>
-				<p onclick='windows.openAll(); hide(emroot(this, 3))'>Open all windows</p>
-				<a href='https://github.com/reineimi/reineimi'>Back to GitHub</a>
-				<a href='mailto:reineimi.dev@gmail.com'>Contact me by E-mail</a>
+				<p class='va2' onclick='va2.mod.box.add("Sandbox"); scrollto("Sandbox")'>Create new object (<c>Va2Box</c>)</p>
+				<p class='va2' onclick='windows.add(); hide(emroot(this, 3))'>Create empty window</p>
+				<p class='va2' onclick='windows.openAll(); hide(emroot(this, 3))'>Open all windows</p>
+				<a class='va2' href='https://github.com/reineimi/reineimi'>Back to GitHub</a>
+				<a class='va2' href='mailto:reineimi.dev@gmail.com'>Contact me by E-mail</a>
 			`);
 		});
 	}</script>
@@ -365,7 +365,7 @@
 		</div>
 
 		<div id='Profile' class='sect z1'>
-			<div class='th_windowFg round shadow p3 pt1 f brRT0'>
+			<div class='th_windowFg round shadow p3 pt1 f'>
 				<!-- Left side -->
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w f'>| Profile</div>
 				<div class='w1-6-3 pr3 pb3 b-c'>
@@ -478,13 +478,6 @@
 			</div>
 		</div>
 
-		<div class='sect'>
-			<div class='w th_windowBg p3 pt1 br shadow'>
-				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w'>| Sandbox area (<c>Va2box</c>)</div>
-				<div id='Sandbox' class='w f'></div>
-			</div>
-		</div>
-
 		<div id='Va2' class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1'>
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2'>| Va2 frontend embedding</div>
@@ -492,21 +485,29 @@
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 	&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
-				<p class='fs1-2 my1'>Main (pre-load, version included):</p>
+				<p class='fs1-2 my1'>Main (pre-load, version, init):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.80.71.201"}'&gt;</pre>
-				<p class='fs1-2 my1'>Va2box module (and Prototypes):</p>
+	&lt;meta name='va2meta' content='{"ver": "1.82.74.202"}'&gt;
+	&lt;script&gt;window.addEventListener('load', ()=>{
+		<b>init();</b>
+	});&lt;/script&gt;</pre>
+				<p class='fs1-2 my1'>Va2Box module (+ prototypes):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
-	&lt;script&gt;
-	window.addEventListener('load', ()=>{
+	&lt;script&gt;window.addEventListener('load', ()=>{
 		extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
-		init(); enable_prototypes();
-	});
-	&lt;/script&gt;</pre>
+		<b>init(); enable_prototypes();</b>
+	});&lt;/script&gt;</pre>
+			</div>
+		</div>
+
+		<div class='sect'>
+			<div class='w th_windowBg p3 pt1 br shadow'>
+				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w'>| Sandbox area (<c>Va2box</c>)</div>
+				<div id='Sandbox' class='w f'></div>
 			</div>
 		</div>
 
