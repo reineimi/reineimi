@@ -1,7 +1,7 @@
-## Personal page:
-https://reineimi.github.io/reineimi
+# [CLICK HERE TO VIEW MY PROFILE](https://reineimi.github.io/reineimi)
+Profile page: https://reineimi.github.io/reineimi
 
-## Social links:
+### Social links:
 - https://github.com/reineimi
 - https://mastodon.social/@reineimi
 - https://bsky.app/profile/reineimi.bsky.social
