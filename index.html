@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.84.80.206"}'>
+	<meta name='va2meta' content='{"ver": "1.85.81.208"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -89,7 +89,7 @@
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
-			init({proto:1,anicons:0,twemoji:0});
+			init({proto:0,anicons:0,twemoji:0});
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
 			//extern.js('va2/lib/va2box.js', 'va2box');
 			extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
@@ -161,7 +161,7 @@
 			});
 
 			// Spotify
-			emi('spot_stats').item(1).onclick = function() {
+			emitem(emi('spot_stats'), 1).onclick = function() {
 				if (!va2.temp.spot_loaded) {
 					mk(this.root().item(2), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
 					va2.temp.spot_loaded = 1;
@@ -272,7 +272,7 @@
 					variables: variables
 				})
 			};
-		emi('al_stats').item(1).onclick = function() {
+		emitem(emi('al_stats'), 1).onclick = function() {
 			if (!va2.temp.AL_loaded) {
 				fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
 				va2.temp.AL_loaded = 1;
@@ -489,7 +489,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.84.80.206"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.85.81.208"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
