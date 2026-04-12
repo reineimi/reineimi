@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.84.79.203"}'>
+	<meta name='va2meta' content='{"ver": "1.84.80.204"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -153,7 +153,10 @@
 				const em = create('div', {
 					className: 'center ch3 brc scale15-hov z1-hov ts01 pt '+color,
 					innerHTML: `<p class='m ch1-5 p05 brc' style='background:var(--${color})'></p>`,
-					onclick: ()=>{ cssvar('accent', `var(--${color})`); }
+					onclick: ()=>{
+						cssvar('accent', `var(--${color})`);
+						cssvar('accentBg', `var(--dark${color})`);
+					}
 				}, 'Colors');
 			});
 
@@ -486,7 +489,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.84.79.203"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.84.80.204"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
