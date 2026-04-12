@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.82.74.202"}'>
+	<meta name='va2meta' content='{"ver": "1.84.79.203"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -89,7 +89,7 @@
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
 		}
 		window.addEventListener('load', ()=>{
-			enable_prototypes(); va2lang('en');
+			init({proto:1,anicons:0,twemoji:0});
 			show(emi('Header'), emi('Main')); rm(emi('Intro'));
 			//extern.js('va2/lib/va2box.js', 'va2box');
 			extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
@@ -99,38 +99,32 @@
 			qem('.myage')[0].innerHTML = ` (${Math.floor((Date.now() - new Date('2001-01-03')) / 3.15576e+10)} y.o.)`;
 
 			// Notifs
-			va2.env.init[1] = ()=>{
-				notify(`Va2 updates:<ul class='my0 py0'>
-				<li>Added notification tray</li>
-				<li>Added animation classes</li>
-				<li>Rewritten a lot of CSS (there are major style changes)</li>
-				<li>Replaced Google resources with local copies (font-faces)</li>
-				<li>Added more colors!</li>
-				<li>Added some branding (logos from older Va2 version)</li>
-				<li>Added language support (not implemented on this webpage)</li>
-				<li>Implemented window logic (you can now create windows)</li>
-				<li>Implemented context menu logic</li>
-				<li>Currently rewriting the Va2Box module (check the next message)</li>
-				<li>Implemented Settings window</li>
-				<!--<li>Rewritten a license</li>-->
-				</ul>`);
-				notify(`<p class='fs1-4 mb1'>Va2Box <x class='fcx'>(work in progress)</x></p>
-				I have temporarily integrated <a href='https://github.com/reineimi/va2/blob/main/lib/va2box.js' target='_blank'>Va2Box</a>
-				on this page. What does it do: it allows you to use the Va2 frontend library to create static HTML content.
-				In other words, designing a web page/application. To use it, just close the notification tray and use the <b>right click</b> or <b>long tap</b> to open the menu.
-				<p class='fs09 fcx pt05'>(Since this is a work-in-progress, the functionality may be limited.)</p>`, 'a-c a-ul');
-				notify("<x class='fs1-5'><c>Va2Box:</c> How to start</x><ol class='pb1'>"+
-				"<li>Close the notification tray and press <c>Right click</c> or <c>Long tap</c>;</li>"+
-				"<li>In the menu, click <c>Create new object</c>;</li>"+
-				"<li>First, change <b>Template: <x class='btn px1 fs06 borderFg'>None</x></b> to <b>Template: <x class='btn px1 fs06 borderFg'>Section</x></b>;</li>"+
-				"<li>Then click <x class='btn green cwhite px2 fs06'>Append</x>;</li>"+
-				"<li>In the new window, select <b>Template: <x class='btn px1 fs06 borderFg'>Section Block</x></b>.</li></ol>"+
-				"Congradulations, you have created your first <b>section</b>!<br>"+
-				"Now you can click <x class='btn green cwhite px2 fs06'>Append</x> again "+
-				"(in the right/bottom window) and close the previous 2 windows.");
-				notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
+			{
+			notify(`Va2 updates:<ul class='my0 py0'>
+			<li>Added language support (not implemented on this webpage)</li>
+			<li>Implemented window logic (you can now create windows)</li>
+			<li>Implemented context menu logic</li>
+			<li>Currently rewriting the Va2Box module (check the next message)</li>
+			<li>Implemented Settings window</li>
+			<li>Enhanced the Terminal window</li>
+			<!--<li>Rewritten a license</li>-->
+			</ul>`);
+			notify(`<p class='fs1-4 mb1'>Va2Box <x class='fcx'>(work in progress)</x></p>
+			I have temporarily integrated <a href='https://github.com/reineimi/va2/blob/main/lib/va2box.js' target='_blank'>Va2Box</a>
+			on this page. What does it do: it allows you to use the Va2 frontend library to create static HTML content.
+			In other words, designing a web page/application. To use it, just close the notification tray and use the <b>right click</b> or <b>long tap</b> to open the menu.
+			<p class='fs09 fcx pt05'>(Since this is a work-in-progress, the functionality may be limited.)</p>`, 'a-c a-ul');
+			notify("<x class='fs1-5'><c>Va2Box:</c> How to start</x><ol class='pb1'>"+
+			"<li>Close the notification tray and press <c>Right click</c> or <c>Long tap</c>;</li>"+
+			"<li>In the menu, click <c>Create new object</c>;</li>"+
+			"<li>First, change <b>Template: <x class='btn px1 fs06 borderFg'>None</x></b> to <b>Template: <x class='btn px1 fs06 borderFg'>Section</x></b>;</li>"+
+			"<li>Then click <x class='btn green cwhite px2 fs06'>Append</x>;</li>"+
+			"<li>In the new window, select <b>Template: <x class='btn px1 fs06 borderFg'>Section Block</x></b>.</li></ol>"+
+			"Congradulations, you have created your first <b>section</b>!<br>"+
+			"Now you can click <x class='btn green cwhite px2 fs06'>Append</x> again "+
+			"(in the right/bottom window) and close the previous 2 windows.");
+			notify('Welcome to my profile! Click on this notification for more info.', 'green cwhite', {silent:1});
 			}
-			init();
 
 			// Socials
 			const socials = qem('.socials')[0];
@@ -146,7 +140,7 @@
 			loop(projects, (i,v)=>{
 				mk(proj, `
 					<div class='w1-3 p2'>
-						<div class='border round py1 px2 pt th_hovWBg' onclick='href("${v[0]}",1)'>
+						<div class='border round py1 px2 pt bgc-hov' onclick='href("${v[0]}",1)'>
 							<p class='fs1-5'>${i}</p>
 							<p class='th_itemBg py1 px2 my1'>${v[1]}</p>
 						</div>
@@ -329,7 +323,7 @@
 	});</script>
 </head>
 
-<body class='ani-all ts-all'>
+<body class='ani-all ts-all' spellcheck='false'>
 	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
 			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
@@ -343,7 +337,7 @@
 		</header>
 	</div>
 
-	<div class='imageA fill bgfill zn1'></div>
+	<div class='imageA fill bgspan zn1'></div>
 	<div class='fill zn1 th_windowBg o06'></div>
 
 	<div id='Intro' style='width: 100%; height: 100dvh; margin: none; display: flex'>
@@ -365,12 +359,12 @@
 		</div>
 
 		<div id='Profile' class='sect z1'>
-			<div class='th_windowFg round shadow p3 pt1 f'>
+			<div class='th_windowFg round shadow p3 pt1 f lh12'>
 				<!-- Left side -->
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w f'>| Profile</div>
 				<div class='w1-6-3 pr3 pb3 b-c'>
 					<!-- Personal data -->
-					<div class='p3 th_windowBg round pb05-g fontCode a-ul'>
+					<div class='p3 th_windowBg round fontCode a-ul'>
 						<p><b>Pen name:</b> <x class='font'>霊音・永旻</x></p>
 						<p><b>Nicknames:</b> reineimi, reineimi_dev</p>
 						<p><b>E-mail:</b> <a href='mailto:reineimi.dev@gmail.com'>reineimi.dev@gmail.com</a></p>
@@ -413,7 +407,7 @@
 						</ul>
 					</div>
 					<!-- Intro/Bio -->
-					<div class='mt2 p3 th_windowBg round pb05-g fontCode a-ul'>
+					<div class='mt2 p3 th_windowBg round fontCode a-ul'>
 						<p class='fs1-5'><b>Bio:</b></p><br>
 						Hello. I'm a junior/middle developer in various fields (check the information above), brimming with a fair share of ideas to implement.<br><br>
 						I strive to get acquainted with every aspect of the digital industry field, which includes: programming, software dev, gamedev, cybersecurity, illustration, vector graphics and more.<br><br>
@@ -424,7 +418,7 @@
 						<i>(Head to the <c><a href='#Notes'>Notes/extra</a></c> section for additional info.)</i>
 					</div>
 					<!-- System -->
-					<div class='mt2 p3 th_windowBg round pb1-g fontCode'>
+					<div class='mt2 p3 th_windowBg round fontCode'>
 						<p class='fs1-5'><b>Current system:</b></p><br>
 						<p><b>OC:</b> Windows 11, Arch Linux</p>
 						<p><b>MB:</b> ASROCK B650M PRO RS (AM5, mATX)</p>
@@ -438,7 +432,7 @@
 
 				<!-- Right side -->
 				<div class='w1-6-3'>
-					<img class='imageB w hr25 round imfill' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')">
+					<img class='imageB imspan w hr25 round' alt='profile_picture' fetchpriority='high' onclick="setclass(this, 'fs')">
 					<div id='Colors' class='center m05-g m my2'></div>
 					<p class='w fs1-5 ls2 fontPrint mt2 mb3'>| Social links:</p>
 					<div class='socials cwhite-g py1-g px3-g fs1-2 my1 f g2'></div>
@@ -481,25 +475,35 @@
 		<div id='Va2' class='sect'>
 			<div class='notes th_windowFg round shadow p3 pt1'>
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2'>| Va2 frontend embedding</div>
+
 				<p class='fs1-2 mb1'>Main (no pre-load, no version):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 	&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;</pre>
+
 				<p class='fs1-2 my1'>Main (pre-load, version, init):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script src='https://reineimi.github.io/va2/lib/va2.js' async&gt;&lt;/script&gt;
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.82.74.202"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.84.79.203"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
+
+				<p class='fs1-2 my1'>Va2.js full init:</p>
+				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
+	&lt;script&gt;window.addEventListener('load', ()=>{
+		extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
+		<b>init({proto:1,anicons:1,twemoji:1});</b>
+	});&lt;/script&gt;</pre>
+
 				<p class='fs1-2 my1'>Va2Box module (+ prototypes):</p>
 				<pre class='fcx nosel fontCode cteal-hov pt ani scroll' onclick="copy(this.textContent); notify('Copied to clipboard', 'green cwhite', {silent:1})">
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
-		<b>init(); enable_prototypes();</b>
+		<b>init({proto:1});</b>
 	});&lt;/script&gt;</pre>
 			</div>
 		</div>
