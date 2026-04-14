@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.87.89.209"}'>
+	<meta name='va2meta' content='{"ver": "1.90.99.214"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -106,8 +106,12 @@
 			<li>Currently rewriting the Va2Box module (check the next message)</li>
 			<li>Implemented Settings window</li>
 			<li>Enhanced the Terminal window</li>
+			<li>Implemented some new funcs and optimizations, especially related to Sessions and data handling</li>
+			<li>Created new "Start page" project, details below</li>
 			<!--<li>Rewritten a license</li>-->
 			</ul>`);
+			notify(`<p class='fs1-4 mb1'>The "Start page" project</p>Without further ado, just visit it! The link is here:
+			<a href='https://reineimi.github.io/va2/home/' target='_blank'>https://reineimi.github.io/va2/home/</a>.`, 'a-c');
 			notify(`<p class='fs1-4 mb1'>Va2Box <x class='fcx'>(work in progress)</x></p>
 			I have temporarily integrated <a href='https://github.com/reineimi/va2/blob/main/lib/va2box.js' target='_blank'>Va2Box</a>
 			on this page. What does it do: it allows you to use the Va2 frontend library to create static HTML content.
@@ -130,7 +134,7 @@
 			loop(links, (i,v)=>{
 				mk(socials, `
 					<a href='https://${v[0]}' target='_blank' class='text border br2 ts01 ${v[1]}'>
-						${gfavicon(v[0])} ${i}
+						${gfavicon(v[0]).em} ${i}
 					</a>`);
 			});
 
@@ -488,7 +492,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.87.89.209"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.89.97.211"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
