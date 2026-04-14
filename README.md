@@ -1,5 +1,11 @@
 # [CLICK HERE TO VIEW MY PROFILE](https://reineimi.github.io/reineimi)
+## [Check my recent project](https://reineimi.github.io/va2/home/)
+
 Profile page: https://reineimi.github.io/reineimi
+<br>
+Vanilla Project (Va2): https://reineimi.github.io/va2
+<br>
+"Start page" (Va2): https://reineimi.github.io/va2/home/
 
 ### Social links:
 - https://github.com/reineimi
