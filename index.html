@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.90.99.214"}'>
+	<meta name='va2meta' content='{"ver": "1.92.104.221"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -166,10 +166,10 @@
 			// Spotify
 			emitem(emi('spot_stats'), 1).onclick = function() {
 				if (!va2.temp.spot_loaded) {
-					mk(this.root().item(2), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
+					mk(emitem(emroot(this), 2), `<img class='w' src="https://data-card-for-spotify.herokuapp.com/api/card?user_id=31sad3p4o5mac64kdvxnwldzibwi" alt="spotify_data_card" onclick="setclass(this, 'fs')">`);
 					va2.temp.spot_loaded = 1;
 				}
-				tshow(this.root().item(2));
+				tshow(emitem(emroot(this), 2));
 			}
 
 			// Context menu
@@ -280,7 +280,7 @@
 				fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
 				va2.temp.AL_loaded = 1;
 			}
-			tshow(this.root().item(2));
+			tshow(emitem(emroot(this), 2));
 		}
 		function handleResponse(response) {
 			return response.json().then(function (json) {
@@ -291,7 +291,7 @@
 		function handleData(data) {
 			console.log(data);
 			const dt = data.data.User;
-			mk(emi('al_stats').item(2), `
+			mk(emitem(emi('al_stats'), 2), `
 				<div class='f w my3 m-g mb1-g fs1-3 b-c'>
 					<p><b>Entries</b>: ${dt.statistics.anime.count}</p>
 					<p><b>Score</b>: ${dt.statistics.anime.meanScore / 10}</p>
@@ -331,7 +331,7 @@
 <body class='ani-all ts-all' spellcheck='false'>
 	<div id='Header' class='spx mb05 hide'>
 		<header class='shadow f brB px2'>
-			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='cgray'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
+			<div class='m ml1 mr2 fontX fs3 fw8 nosel bounded scale08'><p class='fc'>V A</p><p class='abs w h topR rot90 c mt3 mr05 zn1 b1px bn fs2-5'>I I</p></div>
 			<div class='m mx0 ls2 f m-g'><a class='fs2 fontFancy c-hov' href='https://github.com/reineimi'>Reineimi</a></div>
 			<div class='m right'>
 				<div class='round center th_itemBg py1 px2 g2'>
@@ -492,7 +492,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.89.97.211"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.92.104.221"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
