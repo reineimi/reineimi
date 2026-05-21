@@ -9,6 +9,8 @@ Vanilla Project (Va2): https://github.com/reineimi/va2
 <br>
 Va2Box (web-application constructor): https://reineimi.github.io/va2/box/
 
+How to run Lua (`.lua`) scripts on Windows: https://github.com/reineimi/lua-on-windows
+
 ### Social links:
 - https://github.com/reineimi
 - https://mastodon.social/@reineimi
