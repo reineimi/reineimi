@@ -14,7 +14,7 @@
 	<link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'>
 	<noscript><link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'></noscript>
 	<link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'><!-- -->
-	<meta name='va2meta' content='{"ver": "1.92.104.221"}'>
+	<meta name='va2meta' content='{"ver": "1.92.104.237"}'>
 
 	<script type="application/ld+json">{
 		"@context": "https://schema.org",
@@ -84,8 +84,11 @@
 		}
 		const projects = {
 			['V A 二 l l A (Vanilla) / Va2']: ['https://github.com/reineimi/va2', 'A fullstack library, web Desktop Environment, and work-in-progress CMS written for Nginx/openresty server with Lua backend (old version is based on Apache2 server)'],
+			['Va2: Start page']: ['https://reineimi.github.io/va2/home/', 'A customizable homepage for the web browser'],
+			['Va2Box']: ['https://reineimi.github.io/va2/box/', 'Online static web-application constructor (currently front-end only, <b>under development</b>)'],
 			archpoi: ['https://github.com/reineimi/archpoi', 'Quick and minimal Arch Linux auto-installation script written in bash and Lua'],
 			['HTML Article Editor']: ['https://reineimi.github.io/html-article-editor/', 'Rich Text to HTML converter'],
+			['Comics index']: ['https://github.com/reineimi/comics-index', 'A Lua script that parses offline comic book libraries into Va2 frontend HTML files.'],
 		}
 		window.addEventListener('load', ()=>{
 			init({proto:0,anicons:0,twemoji:0});
@@ -93,8 +96,8 @@
 			//extern.js('va2/lib/va2box.js', 'va2box');
 			extern.js('https://reineimi.github.io/va2/lib/va2box.js', 'va2box');
 
-			qem('.imageA')[0].style.backgroundImage = 'url(https://files.mastodon.social/media_attachments/files/112/474/022/545/843/985/original/929a1a4383b45f54.jpg)';
-			qem('.imageB')[0].src = 'https://files.mastodon.social/media_attachments/files/112/474/022/648/653/867/original/c558545806868f5f.jpg';
+			qem('.imageA')[0].style.backgroundImage = 'url(assets/bg.jpg)';
+			qem('.imageB')[0].src = 'assets/profile.jpg';
 			qem('.myage')[0].innerHTML = ` (${Math.floor((Date.now() - new Date('2001-01-03')) / 3.15576e+10)} y.o.)`;
 
 			// Notifs
@@ -142,10 +145,10 @@
 			const proj = qem('.projects')[0];
 			loop(projects, (i,v)=>{
 				mk(proj, `
-					<div class='w1-3 p2'>
-						<div class='border round py1 px2 pt bgc-hov' onclick='href("${v[0]}",1)'>
+					<div class='w1-3 p1'>
+						<div class='border round py1 px2 pt bgc bc-hov c-hov' onclick='href("${v[0]}",1)'>
 							<p class='fs1-5'>${i}</p>
-							<p class='th_itemBg py1 px2 my1'>${v[1]}</p>
+							<p class='py1 px2 my1 br fgc b1px bfgi fc'>${v[1]}</p>
 						</div>
 					</div>`);
 			});
@@ -458,7 +461,7 @@
 			<div class='th_windowFg round shadow p3 pt1 f'>
 				<div class='fs1-5 ls2 fontPrint bB py1 mb2 w'>| Projects</div>
 				<div class='projects w f'></div>
-				<p>... <a href='https://github.com/reineimi?tab=repositories' target='_blank'>and more</a></p>
+				<p>... <a class='c-hov' href='https://github.com/reineimi?tab=repositories' target='_blank'>and more.</a></p>
 			</div>
 		</div>
 
@@ -492,7 +495,7 @@
 	&lt;link rel='preload' href='https://reineimi.github.io/va2/lib/va2.css' as='style' onload='this.onload=null;this.rel="stylesheet"'&gt;
 	&lt;noscript&gt;&lt;link rel='stylesheet' href='https://reineimi.github.io/va2/lib/va2.css'&gt;&lt;/noscript&gt;
 	&lt;link rel='preconnect' href='https://reineimi.github.io/va2/lib/va2.css'&gt;
-	&lt;meta name='va2meta' content='{"ver": "1.92.104.221"}'&gt;
+	&lt;meta name='va2meta' content='{"ver": "1.92.104.237"}'&gt;
 	&lt;script&gt;window.addEventListener('load', ()=>{
 		<b>init();</b>
 	});&lt;/script&gt;</pre>
